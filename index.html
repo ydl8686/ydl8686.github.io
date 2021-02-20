@@ -48,7 +48,7 @@
 			<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/tou.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Yindarling</a></h1>
+		  <h1 class="header-author"><a href="/">努力奋斗的呆逼</a></h1>
 		</hgroup>
 		<p class="header-subtitle">待葡萄成熟透</p>
 
@@ -184,40 +184,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h4><p><code>git branch newImage</code>可以创建一个叫做newImgae的分支，但是当前箭头指向的并不是这个分支，所以commit提交的是之前的main分支</p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121253.png" width="70%" />
-
-<p><code>git checkout newImage</code>就可以将箭头指向newImage这个分支了，再commit就可以将修改保存到新的分支里</p>
-<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121723.png" width="70%" />
-
-<p>决定将当前指向的分支和<code>git merge</code>后的分支合并    </p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121757.png" width="70%" />
-
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121913.png" width="70%" />
-
-<h4 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h4><p>也是一种合并分支的方法，实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去</p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122703.png" width="70%" />
-
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122842.png" width="70%" />
-
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122942.png" width="70%" />
-
-<p>rebase哪个分支，就相当于把哪个分支吞掉（我感觉</p>
-<h4 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h4><p>正常情况下，HEAD指向分支，分支指向提交记录，但是利用<code>git checkout</code>也可以使HEAD直接指向提交记录</p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224244.png" width="70%" />
-
-<p>上图中的C1就是提交记录，但是实际提交记录很长（可以通过<code>git log</code>来查看），可以只输入记录的前几个字符</p>
-<p>或者使用相对引用</p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224525.png" width="70%" />
-
-<p>例如<code>git checkout HEAD^</code></p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224932.png" width="70%" />
-
-<p>移动分支用<code>git branch</code>，移动HEAD用<code>git checkout</code></p>
-<h4 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219225700.png" width="70%" />
-
-<p>使用<code>git reset</code>这种“改写历史”的方法对远程分支是无效的，为了撤销更改并分享给别人，需要使用<code>git revert</code></p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210220221643.png" width="70%" />
+        <p>可视化的<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">git教程游戏</a></p>
+        
+          <a class="article-more-a" href="/2021/02/19/git-game-1/#more">more >></a>
+        
       
 
       
