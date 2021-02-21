@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ydl8686.github.io">
-  <title>Tag: git | Ydl&#39;s Blog</title>
+  <title>服务端#1 | Ydl&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="待葡萄成熟透">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ydl&#39;s Blog">
-<meta property="og:url" content="http://ydl8686.github.io/tags/git/index.html">
+  <meta name="description" content="基础概念JDBC：Java DataBase Connectivity，期望使用统一的Java代码来操作所有的关系型数据库（例如Mysql、Oracle） JDBC是由sun公司来定义的一套操作所有关系型数据库的规则（接口），每一个不同的数据库厂商来编写实现类，提供数据库驱动jar包。每一个实现类都实现了接口，我们就只需要使用接口就可以了，真正执行的代码是驱动jar包中的实现类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端#1">
+<meta property="og:url" content="http://ydl8686.github.io/2021/02/21/%E6%9C%8D%E5%8A%A1%E7%AB%AF-1/index.html">
 <meta property="og:site_name" content="Ydl&#39;s Blog">
-<meta property="og:description" content="待葡萄成熟透">
+<meta property="og:description" content="基础概念JDBC：Java DataBase Connectivity，期望使用统一的Java代码来操作所有的关系型数据库（例如Mysql、Oracle） JDBC是由sun公司来定义的一套操作所有关系型数据库的规则（接口），每一个不同的数据库厂商来编写实现类，提供数据库驱动jar包。每一个实现类都实现了接口，我们就只需要使用接口就可以了，真正执行的代码是驱动jar包中的实现类">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210221225636.png">
+<meta property="article:published_time" content="2021-02-21T01:17:03.000Z">
+<meta property="article:modified_time" content="2021-02-21T15:08:34.858Z">
 <meta property="article:author" content="Yindarling">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="服务端开发">
+<meta property="article:tag" content="JDBC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210221225636.png">
   
     <link rel="alternative" href="/atom.xml" title="Ydl&#39;s Blog" type="application/atom+xml">
   
@@ -162,36 +169,120 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-服务端-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/19/git-game-1/" class="archive-article-date">
-  	<time datetime="2021-02-19T04:10:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/19/git-game-1/">git game#1</a>
+    <h1 class="article-title" itemprop="name">
+      服务端#1
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/02/21/%E6%9C%8D%E5%8A%A1%E7%AB%AF-1/" class="archive-article-date">
+  	<time datetime="2021-02-21T01:17:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h4><p>JDBC：Java DataBase Connectivity，期望使用统一的Java代码来操作所有的关系型数据库（例如Mysql、Oracle）</p>
+<p>JDBC是由sun公司来定义的一套操作所有关系型数据库的规则（接口），每一个不同的数据库厂商来编写实现类，提供数据库驱动jar包。每一个实现类都实现了接口，我们就只需要使用接口就可以了，真正执行的代码是驱动jar包中的实现类</p>
+<a id="more"></a>
+
+<p>不同版本的JDBC==实现类==总称为数据库驱动</p>
+<blockquote>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210221225636.png" width="36%"/>
+</blockquote>
+<h4 id="快速入门步骤"><a href="#快速入门步骤" class="headerlink" title="快速入门步骤"></a>快速入门步骤</h4><ol>
+<li>导入驱动jar包 <code>mysql-connector-java-8.0.23.jar</code><ul>
+<li>复制jar包到项目的libs目录下</li>
+<li>右键libs来<code>add as library</code></li>
+</ul>
+</li>
+<li>注册驱动（告诉系统用哪个版本的驱动jar包）（mysql5以后可以不用注册驱动）</li>
+<li>获取数据库连接对象 Connection</li>
+<li>定义sql</li>
+<li>获取执行sql语句的对象 Statement（Connection不能直接执行）</li>
+<li>执行sql，接收返回结果</li>
+<li>处理结果</li>
+<li>释放资源（否则可能会造成内存泄漏的问题）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.jdbc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">//JDBC快速入门</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcDemo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">//1.导入驱动jar包</span></span><br><span class="line">        <span class="comment">//2.注册驱动</span></span><br><span class="line"><span class="comment">//        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);</span></span><br><span class="line">        <span class="comment">//3.获取数据库的连接对象 Connection</span></span><br><span class="line">        Connection conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/Hotel&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;ydl2000120368&quot;</span>);</span><br><span class="line">        <span class="comment">//4.定义sql语句</span></span><br><span class="line">        String sql=<span class="string">&quot;update Room set total=600 where id=7&quot;</span>;</span><br><span class="line">        <span class="comment">//5.获取执行sql的对象 Statement</span></span><br><span class="line">        Statement stmt = conn.createStatement();</span><br><span class="line">        <span class="comment">//6.执行sql</span></span><br><span class="line">        <span class="keyword">int</span> count=stmt.executeUpdate(sql);</span><br><span class="line">        <span class="comment">//7.处理结果</span></span><br><span class="line">        System.out.println(count);</span><br><span class="line">        <span class="comment">//8.释放资源</span></span><br><span class="line">        stmt.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//整体不是很规范，不能直接抛出异常，应该用try-catch-finally；</span></span><br><span class="line"><span class="comment">//资源（Connection、Statement、ResultSet）释放得在finally里面</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><code>.class</code>是字节码文件，<code>.java</code>是Java源码文件</p>
+</blockquote>
+<h4 id="代码中出现的各个对象"><a href="#代码中出现的各个对象" class="headerlink" title="代码中出现的各个对象"></a>代码中出现的各个对象</h4><ol>
+<li><p>DriverManager：驱动管理对象</p>
+<p>功能：</p>
+<ul>
+<li><p>注册驱动</p>
+<p>API：<code>static void registerDriver(Driver driver)</code>：注册与给定的驱动程序DriverManager</p>
+<p>写代码使用：<code>Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);</code></p>
+<p>通过查看源码发现在<code>com.mysql.cj.jdbc.Driver</code>类中存在静态代码块来执行上面的API</p>
+</li>
+<li><p>获取数据库连接</p>
+<p><code>static Connection getConnection(String url,String user,String password)</code></p>
+<p>url：指定连接的路径，不同数据库写法不一样<code>jdbc:mysql://ip地址:端口号/数据库名称</code></p>
+<p>如果连接的是本机mysql服务器且端口为3306，则可以简写为<code>jdbc:mysql:///数据库名称</code></p>
+</li>
+</ul>
+</li>
+<li><p>Connection：数据库连接对象</p>
+<p>功能</p>
+<ul>
+<li>获取执行sql对象<ul>
+<li><code>Statement createStatement()</code></li>
+<li><code>PrepareStatement prepareStatement(String sql)</code></li>
+</ul>
+</li>
+<li>管理事务（事务：一个业务操作，有多个步骤）<ul>
+<li>开启事务：<code>void setAutoCommit(boolean autoCommit)</code>调用该方法设置参数为false即开启事务</li>
+<li>提交事务：<code>void commit()</code></li>
+<li>回滚事务：<code>void rollback()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Statement：执行sql的对象</p>
+<p>执行sql</p>
+<ul>
+<li><p><code>int executeUpdate(String sql)</code>：执行DML语句（增删改）、DDL语句（创建表、库）</p>
+<p>返回值：影响的行数</p>
+</li>
+<li><p><code>ResultSet executeQuery(String sql)</code>：执行DQL语句（查询）</p>
+</li>
+</ul>
+</li>
+<li><p>ResultSet：结果集对象，封装查询结果</p>
+<p><code>next()</code>：游标（最开始指向表头，并不指向数据）向下移动一行，返回当前行是否是最后一行末尾（已经没有数据了），==返回false代表没有数据，true则是有数据==</p>
+<p><code>getXxx(参数)</code>：获取数据，Xxx代表数据类型；参数可以接受int代表列的编号（不是从0开始），也可以接受String代表列的名称</p>
+<p>遍历结果集对象：</p>
+<ol>
+<li>游标向下移动一行</li>
+<li>判断是否有数据</li>
+<li>获取数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历</span></span><br><span class="line"><span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">	<span class="keyword">int</span> price=rs.getInt(<span class="string">&quot;price&quot;</span>);</span><br><span class="line">	System.out.println(price);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>PreparedStatement：执行sql的对象</p>
+</li>
+</ol>
+<blockquote>
+<p><code>insert</code>    的时候如果某个key是主键，那么用null来占位就好了，不需要写具体的value</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,25 +292,74 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">服务端开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/02/21/%E7%AE%97%E6%B3%95-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法#2
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2021/02/20/%E7%AE%97%E6%B3%95-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法#1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +382,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
