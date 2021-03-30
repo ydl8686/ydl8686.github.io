@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://ydl8686.github.io">
   <title>Java面试 | Ydl&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Set和Map容器都有基于&#x3D;&#x3D;哈希存储&#x3D;&#x3D;和&#x3D;&#x3D;排序树&#x3D;&#x3D;的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。 ArrayList和Vector都是基于数组的底层方式实现，但是Vector方法添加了synchronized关键字修饰，是线程安全的容器，但性能上较ArrayList差">
+  <meta name="description" content="Set和Map容器都有基于&#x3D;&#x3D;哈希存储&#x3D;&#x3D;和&#x3D;&#x3D;排序树&#x3D;&#x3D;的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面试">
 <meta property="og:url" content="http://ydl8686.github.io/2021/03/09/Java%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Ydl&#39;s Blog">
-<meta property="og:description" content="Set和Map容器都有基于&#x3D;&#x3D;哈希存储&#x3D;&#x3D;和&#x3D;&#x3D;排序树&#x3D;&#x3D;的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。 ArrayList和Vector都是基于数组的底层方式实现，但是Vector方法添加了synchronized关键字修饰，是线程安全的容器，但性能上较ArrayList差">
+<meta property="og:description" content="Set和Map容器都有基于&#x3D;&#x3D;哈希存储&#x3D;&#x3D;和&#x3D;&#x3D;排序树&#x3D;&#x3D;的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-09T00:21:15.000Z">
-<meta property="article:modified_time" content="2021-03-09T08:43:39.833Z">
+<meta property="article:modified_time" content="2021-03-30T09:10:51.394Z">
 <meta property="article:author" content="Yindarling">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="面试">
@@ -187,6 +187,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Set和Map容器都有基于==哈希存储==和==排序树==的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。</p>
+<a id="more"></a>
+
 <p>ArrayList和Vector都是基于数组的底层方式实现，但是Vector方法添加了synchronized关键字修饰，是线程安全的容器，但性能上较ArrayList差；LinkedList使用双向链表实现（比ArrayList更占内存）。ArrayList和LinkedList都是非线程安全的，可以通过Collections中的synchronizedList方法将其转成线程安全的容器后再使用（装潢模式）</p>
 <p>常用集合抽象类有List、Set、Map，前两个继承自Collection接口；然后List具体实现有ArrayList、LinkedList和Vector，Map集合用于存储元键值对（一对一，多对一）</p>
 <p>HashMap和HashTable都实现了Map接口；但Map允许键和值为null，而table两个都不能为null；table是同步的，而Map不是，所以table更适合多线程环境。HashMap是快速失败的，并且提供了对键的枚举。</p>
@@ -380,6 +382,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -389,6 +399,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
