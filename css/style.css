@@ -506,6 +506,7 @@ h2.article-head {
 .article-summary code {
   font-family: 'Roboto Mono', Monaco, courier, monospace;
   font-size: 13px;
+  letter-spacing: 1px;
 }
 @media screen and (max-width: 480px) {
   .markdown-content pre,
