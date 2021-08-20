@@ -158,7 +158,7 @@
 <li><p>vue可以监听input的回车来触发相应的事件<code>@keydown.enter=function</code>可以直接绑定enter事件，不用再判断keyCode</p>
 <ul>
 <li><p>对于一般的监听键盘事件，可以先@keydown，再在对应的函数里面判断keycode</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">enterToLogin (ev) &#123;</span><br><span class="line">	ev.keyCode === <span class="number">13</span> &amp;&amp; <span class="built_in">this</span>.login()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">enterToLogin (ev) &#123;</span><br><span class="line">	ev.keyCode === <span class="number">13</span> &amp;&amp; <span class="built_in">this</span>.login()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="在vue中使用jquery"><a href="#在vue中使用jquery" class="headerlink" title="在vue中使用jquery"></a>在vue中使用jquery</h3></li>
 </ul>
 </li>
@@ -200,6 +200,13 @@
         
       </a>
     
+    
+      <a class="nav-right" href="/2021/06/04/%E7%AE%97%E6%B3%95-11/">
+        
+          算法#11
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -313,7 +320,7 @@
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

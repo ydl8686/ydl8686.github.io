@@ -144,6 +144,42 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2021/02/24/%E6%9C%8D%E5%8A%A1%E7%AB%AF-3/">服务端#3</a>
+      </h2>
+      <p class="article-date">February 24, 2021</p>
+      
+        
+  <a href="/tags#学习" >
+    <span class="tag-code">学习</span>
+  </a>
+
+  <a href="/tags#服务端开发" >
+    <span class="tag-code">服务端开发</span>
+  </a>
+
+  <a href="/tags#JDBC" >
+    <span class="tag-code">JDBC</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          JDBC控制事务事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。
+操作：
+
+开启事务
+提交事务
+回滚事务
+
+使用Connection对象来管理事务
+开启事务：void setAutoCommit(boolean autoCommit) / ...
+        
+      </div>
+      <a class="more" href="/2021/02/24/%E6%9C%8D%E5%8A%A1%E7%AB%AF-3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2021/02/23/%E6%83%B3%E5%81%9A%E7%9A%84%E4%BA%8B/">想做的事</a>
       </h2>
       <p class="article-date">February 23, 2021</p>
@@ -191,7 +227,7 @@
       <div class="article-summary">
         
           JDBC抽取工具类主要是对之前代码的获取资源和释放资源操作进一步的抽象和封装
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758 ...
+package cn.itcast.jdbc.util;import java.io.FileReader;import java.io.IOException;import java.net.URL;import ...
         
       </div>
       <a class="more" href="/2021/02/23/%E6%9C%8D%E5%8A%A1%E7%AB%AF-2/">Read more</a>
@@ -231,7 +267,7 @@ replace方法里的（start，end）是左闭右开
 
 
 
-12345//String转StringBufferStringBuffer buffer = new StringBuffer(&quot;java&quot;);Strin ...
+//String转StringBufferStringBuffer buffer = new StringBuffer(&quot;java&quot;);String str ...
         
       </div>
       <a class="more" href="/2021/02/21/%E7%AE%97%E6%B3%95-2/">Read more</a>
@@ -287,7 +323,7 @@ JDBC是由sun公司来定义的一套操作所有关系型数据库的规则（�
           第一天打卡！
 数组中重复的数字
 
-123456789101112131415161718192021222324252627282930313233//超出了时间限制的自己的做法public class Solution &#123;    // Parameters:    //    n ...
+//超出了时间限制的自己的做法public class Solution &#123;    // Parameters:    //    numbers:     an array of integers    //    length:      th ...
         
       </div>
       <a class="more" href="/2021/02/20/%E7%AE%97%E6%B3%95-1/">Read more</a>
@@ -387,7 +423,7 @@ git checkout newImage就可以将箭头指向newImage这个分支了，再comm .
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

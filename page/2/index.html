@@ -144,6 +144,34 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2021/04/07/%E9%9D%A2%E8%AF%95all/">面试all</a>
+      </h2>
+      <p class="article-date">April 7, 2021</p>
+      
+        
+  <a href="/tags#学习" >
+    <span class="tag-code">学习</span>
+  </a>
+
+  <a href="/tags#面试" >
+    <span class="tag-code">面试</span>
+  </a>
+
+  <a href="/tags#前端" >
+    <span class="tag-code">前端</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          原型、原型链每个函数（并不是所有的函数都是构造函数，只有当一个函数通过new关键字调用的时候才叫做构造函数）都有一个prototype属性，叫显式原型。假设父类是师父，子类是徒弟，徒弟还能再收徒弟，那么师父想要传给后代徒弟、徒弟的徒弟的武功，都可以放到prototype属性里面，有了prot ...
+        
+      </div>
+      <a class="more" href="/2021/04/07/%E9%9D%A2%E8%AF%95all/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2021/04/07/%E9%A1%B9%E7%9B%AE%E9%97%AE%E7%AD%94/">项目问答</a>
       </h2>
       <p class="article-date">April 7, 2021</p>
@@ -200,7 +228,7 @@
         
           返回数组中第k大元素
 
-12345678var findKthLargest = function(nums, k) &#123;    // 注意这里的写法，对原数组进行升序排列    // b-a就是降序排列    nums.sort((a,b)=&gt;&#123;        re ...
+var findKthLargest = function(nums, k) &#123;    // 注意这里的写法，对原数组进行升序排列    // b-a就是降序排列    nums.sort((a,b)=&gt;&#123;        return a-b ...
         
       </div>
       <a class="more" href="/2021/04/05/%E7%AE%97%E6%B3%95-9/">Read more</a>
@@ -226,7 +254,7 @@
         
           斐波那契数列
 
-12345678910//根据题目的意思用递归来实现var fib = function(n) &#123;    if(n===0)&#123;        return 0;    &#125;    if(n===1)&#123;        return 1;   ...
+//根据题目的意思用递归来实现var fib = function(n) &#123;    if(n===0)&#123;        return 0;    &#125;    if(n===1)&#123;        return 1;    &#125;    ...
         
       </div>
       <a class="more" href="/2021/03/30/%E7%AE%97%E6%B3%95-8/">Read more</a>
@@ -246,8 +274,8 @@
       
       <div class="article-summary">
         
-          mac下的chrome12341.command+n：打开新窗口2.command+t：打开新标签页3.command+option+左/右：切换前/后标签页4.command+w：关闭当前标签页
-mac下的网易云12341.ctrl+command+左右：切换上下一首歌2.ctrl+com ...
+          mac下的chrome1.command+n：打开新窗口2.command+t：打开新标签页3.command+option+左/右：切换前/后标签页4.command+w：关闭当前标签页
+mac下的网易云1.ctrl+command+左右：切换上下一首歌2.ctrl+command+r：顶 ...
         
       </div>
       <a class="more" href="/2021/03/24/%E5%BF%AB%E6%8D%B7%E9%94%AE/">Read more</a>
@@ -398,31 +426,6 @@ null和undefined区别undefined==null为true，在判断语句里都会被认为
       <a class="more" href="/2021/03/18/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87-Js/">Read more</a>
     </article>
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/03/09/Java%E9%9D%A2%E8%AF%95/">Java面试</a>
-      </h2>
-      <p class="article-date">March 9, 2021</p>
-      
-        
-  <a href="/tags#学习" >
-    <span class="tag-code">学习</span>
-  </a>
-
-  <a href="/tags#面试" >
-    <span class="tag-code">面试</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          Set和Map容器都有基于==哈希存储==和==排序树==的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。
-ArrayList和Vector都是基于数组的底层方式实现，但 ...
-        
-      </div>
-      <a class="more" href="/2021/03/09/Java%E9%9D%A2%E8%AF%95/">Read more</a>
-    </article>
-  
 
   
     <div class="guide-pager">
@@ -465,7 +468,7 @@ ArrayList和Vector都是基于数组的底层方式实现，但 ...
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

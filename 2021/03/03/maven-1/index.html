@@ -161,7 +161,7 @@
 <h4 id="一致的构建模型和插件机制"><a href="#一致的构建模型和插件机制" class="headerlink" title="一致的构建模型和插件机制"></a>一致的构建模型和插件机制</h4><p>插件和依赖的形式大致类似</p>
 <h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210303224353.png" width="100%" />
 
-<h3 id="编译和运行"><a href="#编译和运行" class="headerlink" title="编译和运行"></a>编译和运行</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//项目根目录下</span></span><br><span class="line">mvn compile <span class="comment">//编译项目</span></span><br><span class="line">mvn exec:java -Dexec.mainClass=<span class="string">&quot;org.example.App&quot;</span> <span class="comment">//执行某个Class</span></span><br></pre></td></tr></table></figure>
+<h3 id="编译和运行"><a href="#编译和运行" class="headerlink" title="编译和运行"></a>编译和运行</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//项目根目录下</span></span><br><span class="line">mvn compile <span class="comment">//编译项目</span></span><br><span class="line">mvn exec:java -Dexec.mainClass=<span class="string">&quot;org.example.App&quot;</span> <span class="comment">//执行某个Class</span></span><br></pre></td></tr></table></figure>
 </section>
     <!-- Tags START -->
     
@@ -311,7 +311,7 @@
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

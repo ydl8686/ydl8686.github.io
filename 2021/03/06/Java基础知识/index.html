@@ -169,7 +169,7 @@
 <p>泛型是通过类型擦除来实现的，编译器在编译时擦除了所有类型相关的信息，所以在运行时不存在任何类型相关的信息。无法在运行时访问到类型参数，因为编译器已经把泛型类型转换成了原始类型</p>
 <p>有两种限定通配符，一种是<code>&lt;? extends T&gt;</code>它通过确保类型必须是T的子类来设定类型的上界，另一种是<code>&lt;? super T&gt;</code>它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面<code>&lt;?&gt;</code>表示了非限定通配符，因为<code>&lt;?&gt;</code>可以用任意类型来替代。</p>
 <p>Array事实上并不支持泛型，这也是为什么Joshua Bloch在Effective Java一书中建议使用List来代替Array，因为List可以提供编译期的类型安全保证，而Array却不能。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">array[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">array[<span class="number">1</span>]=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"><span class="comment">//这样并不报错</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">array[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">array[<span class="number">1</span>]=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"><span class="comment">//这样并不报错</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="ref："><a href="#ref：" class="headerlink" title="ref："></a>ref：</h4><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1033693">10 道 Java 泛型面试题</a></p>
@@ -323,7 +323,7 @@
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

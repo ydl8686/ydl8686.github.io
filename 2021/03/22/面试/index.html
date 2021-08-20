@@ -155,7 +155,7 @@
 <p>最开始只设置了null表示“无”，但是null的类型为object，js的开发者觉得表示“无”的值最好不是对象，而且如果null自动转化为0很不容易发现错误，所以又引入了undefined</p>
 <p>最初设计null表示“无”的对象，转为数值为0；undefined表示“无”的基本数据，转为数值时为NaN</p>
 <p>现在null表示“没有对象”，此处不应该有值，例如对象原型链的终点<code>Object.prototype._proto</code>_就是null；而undefined表示“缺少值”，此处应该有值，但是还没有定义，例如被声明但还没有赋值，没有返回值时函数默认返回undefined</p>
-<h3 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1+0.2!=0.3"></a>0.1+0.2!=0.3</h3><h3 id="给数字添加千分位符"><a href="#给数字添加千分位符" class="headerlink" title="给数字添加千分位符"></a>给数字添加千分位符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串分析，每隔<span class="number">3</span>位加<span class="string">&#x27;,&#x27;</span></span><br><span class="line">数字分析，%<span class="number">1000</span>然后加<span class="string">&#x27;,&#x27;</span></span><br><span class="line">(<span class="number">12345678</span>).toLocaleString(<span class="string">&quot;en-US&quot;</span>) =&gt; <span class="string">&quot;12,345,678&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1+0.2!=0.3"></a>0.1+0.2!=0.3</h3><h3 id="给数字添加千分位符"><a href="#给数字添加千分位符" class="headerlink" title="给数字添加千分位符"></a>给数字添加千分位符</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">字符串分析，每隔<span class="number">3</span>位加<span class="string">&#x27;,&#x27;</span></span><br><span class="line">数字分析，%<span class="number">1000</span>然后加<span class="string">&#x27;,&#x27;</span></span><br><span class="line">(<span class="number">12345678</span>).toLocaleString(<span class="string">&quot;en-US&quot;</span>) =&gt; <span class="string">&quot;12,345,678&quot;</span></span><br></pre></td></tr></table></figure>
 <h3 id="面向对象和面向过程区别"><a href="#面向对象和面向过程区别" class="headerlink" title="面向对象和面向过程区别"></a>面向对象和面向过程区别</h3><p><code>caculate(position1,position2)</code>和<code>position1.caculate(position2)</code></p>
 <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。</p>
 <h3 id="HTML、XML、XHTML、JSON"><a href="#HTML、XML、XHTML、JSON" class="headerlink" title="HTML、XML、XHTML、JSON"></a>HTML、XML、XHTML、JSON</h3><h3 id="从输入URL到页面展示发生了什么"><a href="#从输入URL到页面展示发生了什么" class="headerlink" title="从输入URL到页面展示发生了什么"></a>从输入URL到页面展示发生了什么</h3><h4 id="浏览器如何通过域名来查询URL对应的IP"><a href="#浏览器如何通过域名来查询URL对应的IP" class="headerlink" title="浏览器如何通过域名来查询URL对应的IP"></a>浏览器如何通过域名来查询URL对应的IP</h4><p>先是到浏览器缓存（浏览器会按照一定的频率来缓存DNS记录）中找</p>
@@ -323,7 +323,7 @@
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');

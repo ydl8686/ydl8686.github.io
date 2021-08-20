@@ -144,6 +144,31 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2021/03/09/Java%E9%9D%A2%E8%AF%95/">Java面试</a>
+      </h2>
+      <p class="article-date">March 9, 2021</p>
+      
+        
+  <a href="/tags#学习" >
+    <span class="tag-code">学习</span>
+  </a>
+
+  <a href="/tags#面试" >
+    <span class="tag-code">面试</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          Set和Map容器都有基于==哈希存储==和==排序树==的两种实现版本，基于哈希存储的版本理论存取时间复杂度为O(1)，而基于排序树版本的实现在插入或删除元素时会按照元素或元素的键（key）构成排序树从而达到排序和去重的效果。
+ArrayList和Vector都是基于数组的底层方式实现，但 ...
+        
+      </div>
+      <a class="more" href="/2021/03/09/Java%E9%9D%A2%E8%AF%95/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2021/03/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
       </h2>
       <p class="article-date">March 6, 2021</p>
@@ -251,7 +276,7 @@ sup ...
 
 
 
-12345678910111213141516171819202122232425262728293031323334//理解一下题目的意思，是要拷贝一个新的链表，不能直接return head，因为返回的是引用不是拷贝public Node copy ...
+//理解一下题目的意思，是要拷贝一个新的链表，不能直接return head，因为返回的是引用不是拷贝public Node copyRandomList(Node head) &#123;        if(head==null)&#123;    ...
         
       </div>
       <a class="more" href="/2021/03/04/%E7%AE%97%E6%B3%95-7/">Read more</a>
@@ -313,7 +338,7 @@ sup ...
           Day6…打第五头有点痛………
 反转链表
 
-1234567891011121314151617181920/** * public class ListNode &#123; *     int val; *     ListNode next; *     ListNode(int x)  ...
+/** * public class ListNode &#123; *     int val; *     ListNode next; *     ListNode(int x) &#123; val = x; &#125; * &#125; ...
         
       </div>
       <a class="more" href="/2021/03/02/%E7%AE%97%E6%B3%95-6/">Read more</a>
@@ -334,12 +359,12 @@ sup ...
     <span class="tag-code">算法</span>
   </a>
 
-  <a href="/tags#双指针" >
-    <span class="tag-code">双指针</span>
-  </a>
-
   <a href="/tags#递归" >
     <span class="tag-code">递归</span>
+  </a>
+
+  <a href="/tags#双指针" >
+    <span class="tag-code">双指针</span>
   </a>
 
   <a href="/tags#链表" >
@@ -357,7 +382,7 @@ sup ...
 
 
 
-123456789101112131415161718192021222324252627public class Solution &#123;  //和上一道 ...
+public class Solution &#123;  //和上一道题大同小异，复杂度为O(N)    public String LeftRotateStr ...
         
       </div>
       <a class="more" href="/2021/03/01/%E7%AE%97%E6%B3%95-5/">Read more</a>
@@ -386,7 +411,7 @@ sup ...
       <div class="article-summary">
         
           打卡day4！！！明天正式开学！
-预备知识12345//String转字符数组String str=&quot;123&quot;;char[] arr=str.toCharArray(); //[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;]//字符数 ...
+预备知识//String转字符数组String str=&quot;123&quot;;char[] arr=str.toCharArray(); //[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;]//字符数组转Str ...
         
       </div>
       <a class="more" href="/2021/02/28/%E7%AE%97%E6%B3%95-4/">Read more</a>
@@ -436,42 +461,6 @@ sup ...
       <a class="more" href="/2021/02/27/%E7%AE%97%E6%B3%95-3/">Read more</a>
     </article>
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2021/02/24/%E6%9C%8D%E5%8A%A1%E7%AB%AF-3/">服务端#3</a>
-      </h2>
-      <p class="article-date">February 24, 2021</p>
-      
-        
-  <a href="/tags#学习" >
-    <span class="tag-code">学习</span>
-  </a>
-
-  <a href="/tags#服务端开发" >
-    <span class="tag-code">服务端开发</span>
-  </a>
-
-  <a href="/tags#JDBC" >
-    <span class="tag-code">JDBC</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          JDBC控制事务事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。
-操作：
-
-开启事务
-提交事务
-回滚事务
-
-使用Connection对象来管理事务
-12345开启事务：void setAutoCommit(boolean autoComm ...
-        
-      </div>
-      <a class="more" href="/2021/02/24/%E6%9C%8D%E5%8A%A1%E7%AB%AF-3/">Read more</a>
-    </article>
-  
 
   
     <div class="guide-pager">
@@ -514,7 +503,7 @@ sup ...
 </script>
 
 <script>
-  var hasLine = 'true';
+  var hasLine = 'false';
   async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
     $('figure pre').each(function(i, block) {
       var figure = $(this).parents('figure');
