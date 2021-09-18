@@ -10,7 +10,7 @@
   
   <title>
     
-      算法#10 | Ydl&#39;s Blog
+      git使用 | Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,8 +141,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>算法#10</h2>
-  <p class="post-date">2021-05-18</p>
+  <h2>git使用</h2>
+  <p class="post-date">2021-02-19</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -150,25 +150,60 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>闲暇时刻来点easy难度的题目写着试试练练手</p>
-<h4 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210518184510.png" width="70%" />
+    <section class="markdown-content"><p>可视化的<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">git教程游戏</a></p>
+<h4 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h4><p><code>git branch newImage</code>可以创建一个叫做newImgae的分支，但是当前箭头指向的并不是这个分支，所以commit提交的是之前的main分支</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121253.png" width="70%" />
 
-<p>这道题在面试腾讯文档的时候提到了！！！还有进阶版本的，目前也不知道要怎么解决。。希望能在之后遇到</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 相同为0，不同为1</span></span><br><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        t=t^nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="外观数列"><a href="#外观数列" class="headerlink" title="外观数列"></a>外观数列</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210518100552.png" width="70%" />
+<p><code>git checkout newImage</code>就可以将箭头指向newImage这个分支了，再commit就可以将修改保存到新的分支里</p>
+<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121723.png" width="70%" />
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> countAndSay = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> str=countAndSay(n-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">let</span> t=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> tempResult=[];</span><br><span class="line">        <span class="keyword">let</span> tempArray=[];</span><br><span class="line">        tempArray.push(str.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;str.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str.charAt(i+<span class="number">1</span>)===str.charAt(i))&#123;</span><br><span class="line">                tempArray.push(str.charAt(i+<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                tempResult.push(tempArray);</span><br><span class="line">                tempArray=[];</span><br><span class="line">                tempArray.push(str.charAt(i+<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        tempResult.push(tempArray);</span><br><span class="line">        <span class="keyword">let</span> resultStr=<span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;tempResult.length;i++)&#123;</span><br><span class="line">            resultStr=resultStr+tempResult[i].length+tempResult[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultStr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="最后一个单词的长度"><a href="#最后一个单词的长度" class="headerlink" title="最后一个单词的长度"></a>最后一个单词的长度</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210518184058.png" width='70%' />
+<p>决定将当前指向的分支和<code>git merge</code>后的分支合并    </p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121757.png" width="70%" />
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLastWord = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    s=s.trim();</span><br><span class="line">    <span class="keyword">let</span> result=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> i=s.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; s.charAt(i)!==<span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">        result++;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219121913.png" width="70%" />
+
+<h4 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h4><p>也是一种合并分支的方法，实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122703.png" width="70%" />
+
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122842.png" width="70%" />
+
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219122942.png" width="70%" />
+
+<p>rebase哪个分支，就相当于把哪个分支吞掉（我感觉</p>
+<h4 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h4><p>正常情况下，HEAD指向分支，分支指向提交记录，但是利用<code>git checkout</code>也可以使HEAD直接指向提交记录</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224244.png" width="70%" />
+
+<p>上图中的C1就是提交记录，但是实际提交记录很长（可以通过<code>git log</code>来查看），可以只输入记录的前几个字符</p>
+<p>或者使用相对引用</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224525.png" width="70%" />
+
+<p>例如<code>git checkout HEAD^</code></p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219224932.png" width="70%" />
+
+<p>移动分支用<code>git branch</code>，移动HEAD用<code>git checkout</code></p>
+<h4 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h4><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210219225700.png" width="70%" />
+
+<p>使用<code>git reset</code>这种“改写历史”的方法对远程分支是无效的，为了撤销更改并分享给别人，需要使用<code>git revert</code></p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20210220221643.png" width="70%" />
+
+
+
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><h4 id="创建新分支"><a href="#创建新分支" class="headerlink" title="创建新分支"></a>创建新分支</h4><p><code>git branch branchName</code></p>
+<h4 id="创建新分支并并切换到新分支"><a href="#创建新分支并并切换到新分支" class="headerlink" title="创建新分支并并切换到新分支"></a>创建新分支并并切换到新分支</h4><p><code>git checkout -b branchName</code></p>
+<h4 id="查看所有分支"><a href="#查看所有分支" class="headerlink" title="查看所有分支"></a>查看所有分支</h4><p><code>git branch -a</code></p>
+<h4 id="本地删除分支"><a href="#本地删除分支" class="headerlink" title="本地删除分支"></a>本地删除分支</h4><p><code>git branch -d branchName</code></p>
+<h4 id="远程删除分支"><a href="#远程删除分支" class="headerlink" title="远程删除分支"></a>远程删除分支</h4><p><code>git push origin :branchName</code></p>
+<blockquote>
+<p>分支名前的冒号表示删除</p>
+</blockquote>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#算法" >
-    <span class="tag-code">算法</span>
+  <a href="/tags#git教程" >
+    <span class="tag-code">git教程</span>
   </a>
 
       </div>
@@ -179,17 +214,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/05/16/vue%E5%B0%8F%E5%9D%91%E6%80%BB%E7%BB%93/">
-        <span class="nav-arrow">← </span>
-        
-          vue小坑总结
-        
-      </a>
     
-    
-      <a class="nav-right" href="/2021/05/19/%E7%BA%A2%E5%AE%9D%E4%B9%A6/">
+      <a class="nav-right" href="/2021/02/20/%E7%AE%97%E6%B3%95-1/">
         
-          📖红宝书
+          算法#1
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -214,7 +242,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-nav-text">只出现一次的数字</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97"><span class="toc-nav-text">外观数列</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="toc-nav-text">最后一个单词的长度</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#branch"><span class="toc-nav-text">branch</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#merge"><span class="toc-nav-text">merge</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#rebase"><span class="toc-nav-text">rebase</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-nav-text">相对引用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%92%A4%E9%94%80%E5%8F%98%E6%9B%B4"><span class="toc-nav-text">撤销变更</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%86%E6%94%AF"><span class="toc-nav-text">分支</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF"><span class="toc-nav-text">创建新分支</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF%E5%B9%B6%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E5%88%86%E6%94%AF"><span class="toc-nav-text">创建新分支并并切换到新分支</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="toc-nav-text">查看所有分支</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-nav-text">本地删除分支</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9C%E7%A8%8B%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-nav-text">远程删除分支</span></a></li></ol>
     
   </div>
 </aside>
@@ -224,7 +252,7 @@
 
 <script>
   (function () {
-    var url = 'http://ydl8686.github.io/2021/05/18/算法-10/';
+    var url = 'http://ydl8686.github.io/2021/02/19/git使用/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
