@@ -10,7 +10,7 @@
   
   <title>
     
-      快捷键 | Ydl&#39;s Blog
+      Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,8 +141,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>快捷键</h2>
-  <p class="post-date">2021-03-24</p>
+  <h2></h2>
+  <p class="post-date">2022-01-09</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -150,21 +150,31 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="mac下的chrome"><a href="#mac下的chrome" class="headerlink" title="mac下的chrome"></a>mac下的chrome</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>command+n：打开新窗口</span><br><span class="line"><span class="number">2.</span>command+t：打开新标签页</span><br><span class="line"><span class="number">3.</span>command+option+左/右：切换前/后标签页</span><br><span class="line"><span class="number">4.</span>command+w：关闭当前标签页</span><br></pre></td></tr></table></figure>
-<h3 id="mac下的网易云"><a href="#mac下的网易云" class="headerlink" title="mac下的网易云"></a>mac下的网易云</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+command+左右：切换上下一首歌</span><br><span class="line"><span class="number">2.</span>ctrl+command+r：顶栏是否显示歌词</span><br><span class="line"><span class="number">3.</span>ctrl+command+t：暂停/播放</span><br><span class="line">上面的这些快捷键需要自定义，默认的会和chrome的冲突</span><br></pre></td></tr></table></figure>
-<h3 id="mac下的vscode"><a href="#mac下的vscode" class="headerlink" title="mac下的vscode"></a>mac下的vscode</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+反引号：显示终端</span><br><span class="line"><span class="number">2.</span>command+ctrl+f：全屏/退出全屏</span><br><span class="line"><span class="number">3.</span>option+点击：插入多个光标</span><br><span class="line"><span class="number">4.</span>command+i：选中当前行</span><br><span class="line"><span class="number">5.</span>command+shift+k：删除当前行</span><br><span class="line"><span class="number">6.</span>option+上/下：移动上下行</span><br><span class="line"><span class="number">7.</span>command+enter：下一行插入</span><br><span class="line"><span class="number">8.</span>command+shift+enter：上一行插入</span><br><span class="line"><span class="number">9.</span>shift+option（ALT）+f：格式化代码</span><br></pre></td></tr></table></figure>
-<h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+左/右：切换左右桌面</span><br><span class="line"><span class="number">2.</span>ctrl+command+q：锁屏</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h1 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h1><h3 id="原型（prototype）"><a href="#原型（prototype）" class="headerlink" title="原型（prototype）"></a>原型（prototype）</h3><p>一个简单的对象，用于实现对象的属性继承。可以简单的理解成父类是师父，子类是徒弟，徒弟还能再收徒弟，那么师父想要传给后代徒弟、徒弟的徒弟的武功，都可以放到prototype属性里面，有了prototype，就不需要为每一个实例创建重复的属性方法，后代都能够使用</p>
+<blockquote>
+<p>在 Firefox 和 Chrome 中，每个<code>JavaScript</code>对象中都包含一个<code>__proto__</code> 的属性指向该对象的原型，可通过<code>obj.__proto__</code>进行访问。</p>
+</blockquote>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>可以通过<code>new</code>来新建一个对象的函数</p>
+<blockquote>
+<p>像<code>Object</code>就是，因为可以<code>const instance = new Object()</code></p>
+</blockquote>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>通过构造函数和<code>new</code>创建出来的对象</p>
+<blockquote>
+<p>上面的<code>instance</code>就是一个实例</p>
+</blockquote>
+<h3 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h3><p>每个构造函数都有一个<code>prototype</code>对象属性（注意，必须是构造函数，像箭头函数不是构造函数，没有<code>prototype</code>对象属性），叫做显式原型；有了<code>prototype</code>，就不需要为每一个实例创建重复的属性方法，后代都能够访问</p>
+<p>实例只能通过<code>__proto__</code>指向原型，叫做隐式原型，通过<code>constructor</code>指向构造函数（但是实际上只有<code>prototype</code>才有<code>constructor</code>）</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/未命名文件.png"/>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cons = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;波吉&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">cons.prototype.name = <span class="string">&#x27;国王排名&#x27;</span>;</span><br><span class="line">cons.rank = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> cons();</span><br><span class="line"></span><br><span class="line">instance.__proto__.name <span class="comment">// 国王排名</span></span><br><span class="line">instance.constructor.rank <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">const</span> instance1 = <span class="keyword">new</span> cons();</span><br><span class="line">instance1.__proto__.name <span class="comment">// 国王排名</span></span><br><span class="line">instance1.constructor.rank <span class="comment">// 1</span></span><br><span class="line">cons === cons.prototype.constructor <span class="comment">// true</span></span><br><span class="line">instance.hasOwnProperty(<span class="string">&#x27;constructor&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">cons.prototype.hasOwnProperty(<span class="string">&#x27;constructor&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>利用<code>instance of</code>判断一个对象是不是数组就是通过不停的<code>._proto_</code>来判断是否会等于<code>Array.prototype</code>，如果一直到<code>null</code>都不等于，那么就不是数组</p>
+</blockquote>
+<p>解析position中的relative和absolute：</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/css-position-static-relative-absolute-fixed.html">https://www.runoob.com/w3cnote/css-position-static-relative-absolute-fixed.html</a></p>
+<p>css中的选择器</p>
 </section>
     <!-- Tags START -->
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#实用技巧" >
-    <span class="tag-code">实用技巧</span>
-  </a>
-
-      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
@@ -172,17 +182,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/03/22/%E9%9D%A2%E8%AF%95/">
+      <a class="nav-left" href="/2021/06/04/%E7%AE%97%E6%B3%95-11/">
         <span class="nav-arrow">← </span>
         
-          前端基础知识
+          算法#11
         
       </a>
     
     
-      <a class="nav-right" href="/2021/03/24/js%E7%AE%97%E6%B3%95%E5%B8%B8%E7%94%A8API/">
+      <a class="nav-right" href="/2022/01/16/css%E5%8A%A8%E7%94%BB%E7%89%B9%E6%95%88/">
         
-          js常用API
+          css动画特效
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -207,7 +217,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84chrome"><span class="toc-nav-text">mac下的chrome</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84%E7%BD%91%E6%98%93%E4%BA%91"><span class="toc-nav-text">mac下的网易云</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84vscode"><span class="toc-nav-text">mac下的vscode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac"><span class="toc-nav-text">mac</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-nav-text">原型与原型链</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%9F%E5%9E%8B%EF%BC%88prototype%EF%BC%89"><span class="toc-nav-text">原型（prototype）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-nav-text">构造函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-nav-text">实例</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="toc-nav-text">关系</span></a></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -217,7 +227,7 @@
 
 <script>
   (function () {
-    var url = 'http://ydl8686.github.io/2021/03/24/快捷键/';
+    var url = 'http://ydl8686.github.io/2022/01/09/原型链/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({

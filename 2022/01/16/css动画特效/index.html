@@ -10,7 +10,7 @@
   
   <title>
     
-      快捷键 | Ydl&#39;s Blog
+      css动画特效 | Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,8 +141,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>快捷键</h2>
-  <p class="post-date">2021-03-24</p>
+  <h2>css动画特效</h2>
+  <p class="post-date">2022-01-16</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -150,18 +150,28 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="mac下的chrome"><a href="#mac下的chrome" class="headerlink" title="mac下的chrome"></a>mac下的chrome</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>command+n：打开新窗口</span><br><span class="line"><span class="number">2.</span>command+t：打开新标签页</span><br><span class="line"><span class="number">3.</span>command+option+左/右：切换前/后标签页</span><br><span class="line"><span class="number">4.</span>command+w：关闭当前标签页</span><br></pre></td></tr></table></figure>
-<h3 id="mac下的网易云"><a href="#mac下的网易云" class="headerlink" title="mac下的网易云"></a>mac下的网易云</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+command+左右：切换上下一首歌</span><br><span class="line"><span class="number">2.</span>ctrl+command+r：顶栏是否显示歌词</span><br><span class="line"><span class="number">3.</span>ctrl+command+t：暂停/播放</span><br><span class="line">上面的这些快捷键需要自定义，默认的会和chrome的冲突</span><br></pre></td></tr></table></figure>
-<h3 id="mac下的vscode"><a href="#mac下的vscode" class="headerlink" title="mac下的vscode"></a>mac下的vscode</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+反引号：显示终端</span><br><span class="line"><span class="number">2.</span>command+ctrl+f：全屏/退出全屏</span><br><span class="line"><span class="number">3.</span>option+点击：插入多个光标</span><br><span class="line"><span class="number">4.</span>command+i：选中当前行</span><br><span class="line"><span class="number">5.</span>command+shift+k：删除当前行</span><br><span class="line"><span class="number">6.</span>option+上/下：移动上下行</span><br><span class="line"><span class="number">7.</span>command+enter：下一行插入</span><br><span class="line"><span class="number">8.</span>command+shift+enter：上一行插入</span><br><span class="line"><span class="number">9.</span>shift+option（ALT）+f：格式化代码</span><br></pre></td></tr></table></figure>
-<h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>ctrl+左/右：切换左右桌面</span><br><span class="line"><span class="number">2.</span>ctrl+command+q：锁屏</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h2 id="滚动视差"><a href="#滚动视差" class="headerlink" title="滚动视差"></a>滚动视差</h2><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/QQ20220116-111427-HD.gif" />
+
+<h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate"></a><code>rotate</code></h3><p>3D transform中有下面三个方法</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">rotateX(angle)</span><br><span class="line">rotateY(angle)</span><br><span class="line">rotateZ(angle)</span><br></pre></td></tr></table></figure>
+<p>假设有一张纸和电脑屏幕平行，推着这张纸的上面使其旋转就是<code>rotateX</code>，推的度数就是<code>rotateX</code>的参数；推着这张纸的右边使其旋转就是<code>rotateY</code>；将这张纸面对着自己顺时针旋转就是<code>rotateZ</code></p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220116224635.png" width="60%" />
+
+<h3 id="perspective"><a href="#perspective" class="headerlink" title="perspective"></a><code>perspective</code></h3><p>对于没有设置<code>rotateX</code>和<code>rotateY</code>的元素，在确定了<code>perspective</code>的值之后，那么其子元素设置的<code>translateZ</code>（<code>translateX/Y/Z</code>就是改变在对应坐标轴上的距离）越小，子元素大小越小；越接近设置的<code>perspective</code>值，子元素大小越大（相等时撑满整个屏幕，如果没有<code>overflow:hidden</code>的限制）；当超过设置的<code>perspective</code>值时，就看不到了（相当于在眼睛后面）</p>
+<p><code>perspective</code>属性既可以用在舞台元素上（即所有动画元素们的共同父辈元素），也可以用在当前动画元素上</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.stage</span> &#123;</span><br><span class="line">  <span class="attribute">perspective</span>: <span class="number">600px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#stage</span> <span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">perspective</span>(<span class="number">600px</span>) <span class="built_in">rotateY</span>(<span class="number">45</span>edg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="perspective-origin"><a href="#perspective-origin" class="headerlink" title="perspective-origin"></a><code>perspective-origin</code></h3><p>该属性默认是看向元素中心位置（也即<code>perspective-origin: 50% 50%</code>），通过设置该属性的值，可以模拟从不同位置来观察物体的效果</p>
+<p>设置<code>perspective-origin: left top</code>，那么视线结束点在左上角，因此就看起来像是从右下角去观察；反之<code>right bottom</code>，视线结束点在右下，那么相当于从左上角观察</p>
+<h3 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a><code>transform-style</code></h3><p>该属性经常会用到，有两个值<code>flat</code>和<code>preserve-3d</code>，默认是前者表示平面，后者表示3D透视；要实现3D效果的时候，通常会把该属性应用在舞台元素上</p>
+<h3 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a><code>backface-visibility</code></h3><p>在CSS的3D世界中，默认是可以透视被遮挡的元素的，因此为了符合现实世界效果。通过会使后面被遮挡元素不可见<code>backface-visibility: hidden</code></p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#实用技巧" >
-    <span class="tag-code">实用技巧</span>
+  <a href="/tags#前端" >
+    <span class="tag-code">前端</span>
   </a>
 
       </div>
@@ -172,17 +182,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/03/22/%E9%9D%A2%E8%AF%95/">
+      <a class="nav-left" href="/2022/01/09/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
         <span class="nav-arrow">← </span>
         
-          前端基础知识
+          (untitled)
         
       </a>
     
     
-      <a class="nav-right" href="/2021/03/24/js%E7%AE%97%E6%B3%95%E5%B8%B8%E7%94%A8API/">
+      <a class="nav-right" href="/2022/01/17/%E5%89%91%E6%8C%87offer%E7%AE%97%E6%B3%95/">
         
-          js常用API
+          剑指offer算法
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -207,7 +217,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84chrome"><span class="toc-nav-text">mac下的chrome</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84%E7%BD%91%E6%98%93%E4%BA%91"><span class="toc-nav-text">mac下的网易云</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac%E4%B8%8B%E7%9A%84vscode"><span class="toc-nav-text">mac下的vscode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac"><span class="toc-nav-text">mac</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%B7%AE"><span class="toc-nav-text">滚动视差</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rotate"><span class="toc-nav-text">rotate</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#perspective"><span class="toc-nav-text">perspective</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#perspective-origin"><span class="toc-nav-text">perspective-origin</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#transform-style"><span class="toc-nav-text">transform-style</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#backface-visibility"><span class="toc-nav-text">backface-visibility</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -217,7 +227,7 @@
 
 <script>
   (function () {
-    var url = 'http://ydl8686.github.io/2021/03/24/快捷键/';
+    var url = 'http://ydl8686.github.io/2022/01/16/css动画特效/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
