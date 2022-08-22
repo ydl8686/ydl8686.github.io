@@ -10,7 +10,7 @@
   
   <title>
     
-      服务端开发总结 | Ydl&#39;s Blog
+      2021总结 | Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,8 +141,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>服务端开发总结</h2>
-  <p class="post-date">2021-04-23</p>
+  <h2>2021总结</h2>
+  <p class="post-date">2022-01-31</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -150,54 +150,28 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="web开发处理请求过程"><a href="#web开发处理请求过程" class="headerlink" title="web开发处理请求过程"></a>web开发处理请求过程</h3><p>来自浏览器的请求从web容器到dispatcherServlet中（不过不是所有请求都会到servlet中，静态页面就不是）</p>
-<p>然后到handler mapping（维护了请求和controller的对应关系）中找到对应的controller</p>
-<p>把请求传到controller中，在controller里参数转换成java对象，然后把java对象和请求扔给service</p>
-<p>最后controller返回数据和逻辑视图名到dispatcherServlet中</p>
-<p>dispatcherServlet再拿着model到视图解析器里进行解析视图，得到如html类型的视图</p>
-<p>最后作为response body返回到浏览器端</p>
-<p>还有一种是在controller中java对象被转换成json对象就直接返回（restful）</p>
-<p>还有一种是不同的model表达方式导致有不同的视图解析器</p>
-<h3 id="web应用程序的分层"><a href="#web应用程序的分层" class="headerlink" title="web应用程序的分层"></a>web应用程序的分层</h3><ol>
-<li>view视图层，主要负责前台页面的表示</li>
-<li>model模型</li>
-<li>controller控制层，负责具体的业务模块流程的控制</li>
-<li>service业务层，主要负责业务模块的逻辑应用设计</li>
-<li>domain实体</li>
-<li>dao数据访问层，主要负责数据的持久化，与数据库进行联络的一些任务都封装在此</li>
-</ol>
-<h3 id="微服务相对于传统单体应用程序有哪些优势，单体应用有什么不足"><a href="#微服务相对于传统单体应用程序有哪些优势，单体应用有什么不足" class="headerlink" title="微服务相对于传统单体应用程序有哪些优势，单体应用有什么不足"></a>微服务相对于传统单体应用程序有哪些优势，单体应用有什么不足</h3><h4 id="微服务优势"><a href="#微服务优势" class="headerlink" title="微服务优势"></a>微服务优势</h4><ol>
-<li>应用程序分解为具有明确定义了职责范围的细粒度组件</li>
-<li>完全独立部署和测试，可复用性更强</li>
-<li>使用轻量级通信协议，HTTP和JSON，更低的耦合性</li>
-<li>服务实现可使用多种编程语言和技术</li>
-<li>将大型团队划分成多个小型开发团队，每个团队只负责各自的任务</li>
-</ol>
-<h4 id="单体不足"><a href="#单体不足" class="headerlink" title="单体不足"></a>单体不足</h4><ol>
-<li>数据库的表对所有模块可见</li>
-<li>一个人的修改整个应用都要重新构建、测试、部署</li>
-<li>整体复制分布式部署，不能拆分按需部署</li>
-</ol>
-<h3 id="服务开发和注册的好处"><a href="#服务开发和注册的好处" class="headerlink" title="服务开发和注册的好处"></a>服务开发和注册的好处</h3><ol>
-<li>快速水平伸缩（增加或减少服务器数），而不是垂直伸缩（增加或减少硬件），不影响客户端</li>
-<li>提高应用程序的弹性（分布式系统中对问题的容错性）</li>
-</ol>
-<h3 id="Eureka、Ribbon、Feign和Zuul的相互关系"><a href="#Eureka、Ribbon、Feign和Zuul的相互关系" class="headerlink" title="Eureka、Ribbon、Feign和Zuul的相互关系"></a>Eureka、Ribbon、Feign和Zuul的相互关系</h3><p>Eureka 负责服务的注册与发现，向一些服务提供已经注册的服务的相关信息，比如有哪些服务、服务有哪些实例、实例的 IP 地址、端口号等等。Eureka 分为 server 端和 client 端（服务消费方和提供方都是 client 端），一般来说 server 端进行多个实例的部署</p>
-<p>Ribbon 部署在服务的消费端，需要向 Eureka 获取已部署的服务信息，将这些信息缓存在本地，并提供负载均衡策略来访问这些服务</p>
-<p>Zuul 是总的入口，需要向 Eureka Server 获取当前系统中部署的服务和其状态。针对于已处于 up 状态的，Zuul 会建立相应的路由，路由方式有静态路由等。由 Zuul 来代为访问目标服务，借助 Ribbon 做负载均衡</p>
-<p>Feign 提供了客户端访问目标服务的一种简化的开发方式，只需要定义一个加上 @FeignClient 注解的接口，将其注入到代码中，然后调用该接口的方法即可。Feign 借助于 Ribbon，简化了客户端的调用方式</p>
+    <section class="markdown-content"><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>今天是除夕，农历2021年的最后一天，总觉得要写点什么记下这一年发生的重要的事情，才不至于浑浑噩噩一年一年麻木的过去。</p>
+<p>2021年经历了很多事情，包括升学、工作、生活上的，虽然当时可能不觉得，但现在看来也确确实实对我产生了影响，所以总结了下面几件对我意义重大的事情。</p>
+<h4 id="实习"><a href="#实习" class="headerlink" title="实习"></a>实习</h4><p>应该算是从小到大以来第一次脱离了“学校”这个氛围，去打工，去接触社会。我现在都还能记得，当初既要忙保研课程，另一面又各种疯狂地约面试；偏偏那段时间感情上还不太顺利，总是喜欢偷懒然后一个人去玄武湖瞎逛，给大伟打电话，给爸妈打电话等，然后逛到很晚回宿舍，准备下次的面试。准备得也不够充分，面试总是碰壁，不过好在及时总结教训，专业知识上的、面试技巧上的，然后非常幸运地拿到了腾讯的实习offer。</p>
+<p>我实习的团队真是太棒了！无论是氛围上的，还是专业知识上的，都给了我很大的学习空间；在深圳一个人实习的日子，也锻炼了我的自理能力，如果还有机会去实习的话，我相信我一定能做得更好；回想起当初在深圳熬夜的日子，真的是后悔莫及，我应该抓紧机会，多在企业里学习知识，锻炼自己的能力才对。悟以往之不谏，知来者之可追；以后要做的很好才行！</p>
+<h4 id="保研"><a href="#保研" class="headerlink" title="保研"></a>保研</h4><p>在深圳的时候，其实有段时间非常焦虑，因为不清楚软件设计会不会挂科；如果挂科了的话就得直接工作，然后参加实习生转正答辩，突然节奏就变得紧张起来；不过还好，最后只是虚惊一场，保研名额70+，我是40多名，勉勉强强。不过保研也导致了我大四上一直在摆烂，天天在宿舍里面荒度时光，当时想的是“只有大四上能够放松一下了，之后就要去实习没时间了”，不过我也不后悔，因为后悔也没有用，而且当时确实也玩得很爽；所以现在要多努力些，好好准备实习，不能一直摆烂。反正，不要做让自己后悔的事情就是了。</p>
+<h4 id="自立"><a href="#自立" class="headerlink" title="自立"></a>自立</h4><p>寒假在家一个月左右的时间，我深刻地意识到，我和我父母有着完全不一样的观念，家庭、工作、知识、时代等环境塑造了每个人不同的观念看法，在很多方面都是这样的，例如看待亲子关系、帮忙干活、拿小太阳取暖等等；我一直认为观念这种东西是很难去改变的，无法强求别人的观念一定要与自己一致，所以我很少会费口舌去向别人输出我的观念，因为都是徒劳而已。一段关系应该是求同存异，做家人是这样的，当朋友也是这样的；如果一定要求我的观念和别人的一致，那我倒不如敬而远之，做好自己就可以了。</p>
+<p>我真的迫切希望我赶快经济独立，能够自己过好自己的生活，然后在保持适当的距离下和父母沟通，才是最好的状态，所以要好好准备专业技能，找到一份好的实习。</p>
+<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><p>我希望我新的一年里能够</p>
+<ul>
+<li>学日语（到考级的程度）</li>
+<li>提高自己的自立自理能力（指研究生期间照顾好自己）</li>
+<li>提高专业技能水平，多涨知识少玩手机（就决定做前端了！）</li>
+</ul>
+<p>加油⛽️！</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#服务端开发" >
-    <span class="tag-code">服务端开发</span>
-  </a>
-
-  <a href="/tags#NJUSE" >
-    <span class="tag-code">NJUSE</span>
+  <a href="/tags#随笔" >
+    <span class="tag-code">随笔</span>
   </a>
 
       </div>
@@ -208,20 +182,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/04/07/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86%E9%97%AE%E7%AD%94/">
+      <a class="nav-left" href="/2022/01/17/%E5%89%91%E6%8C%87offer%E7%AE%97%E6%B3%95/">
         <span class="nav-arrow">← </span>
         
-          项目经历问答
+          剑指offer算法
         
       </a>
     
-    
-      <a class="nav-right" href="/2021/04/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/">
-        
-          数据库事务隔离
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -243,7 +210,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#web%E5%BC%80%E5%8F%91%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">web开发处理请求过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%86%E5%B1%82"><span class="toc-nav-text">web应用程序的分层</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%AF%B9%E4%BA%8E%E4%BC%A0%E7%BB%9F%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF%EF%BC%8C%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E8%B6%B3"><span class="toc-nav-text">微服务相对于传统单体应用程序有哪些优势，单体应用有什么不足</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BC%98%E5%8A%BF"><span class="toc-nav-text">微服务优势</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8D%95%E4%BD%93%E4%B8%8D%E8%B6%B3"><span class="toc-nav-text">单体不足</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-nav-text">服务开发和注册的好处</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Eureka%E3%80%81Ribbon%E3%80%81Feign%E5%92%8CZuul%E7%9A%84%E7%9B%B8%E4%BA%92%E5%85%B3%E7%B3%BB"><span class="toc-nav-text">Eureka、Ribbon、Feign和Zuul的相互关系</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-nav-text">总结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9E%E4%B9%A0"><span class="toc-nav-text">实习</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BF%9D%E7%A0%94"><span class="toc-nav-text">保研</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%87%AA%E7%AB%8B"><span class="toc-nav-text">自立</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B1%95%E6%9C%9B"><span class="toc-nav-text">展望</span></a></li></ol>
     
   </div>
 </aside>
@@ -253,7 +220,7 @@
 
 <script>
   (function () {
-    var url = 'http://ydl8686.github.io/2021/04/23/服务端开发总结/';
+    var url = 'http://ydl8686.github.io/2022/01/31/2021总结/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
