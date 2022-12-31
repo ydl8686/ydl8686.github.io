@@ -64,9 +64,9 @@
   })
 
   $('.toc-nav a').on('click', function (e) {
-    e.preventDefault()
+    // e.preventDefault()
     var catalogTarget = e.currentTarget
-    var scrollTarget = $(catalogTarget.getAttribute('href'))
+    var scrollTarget = $(decodeURI(catalogTarget.getAttribute('href')))
     var top = scrollTarget.offset().top
     if (top > 0) {
       $('html,body').animate({
