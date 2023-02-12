@@ -10,7 +10,7 @@
   
   <title>
     
-      nestjs | Ydl&#39;s Blog
+      NestJs | Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>nestjs</h2>
+  <h2>NestJs</h2>
   <p class="post-date">2023-01-26</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -150,15 +150,18 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>restful api：每个资源都有对应的url来标识，通过不同的请求方法来对这个资源进行操作</p>
-<p>版本控制：一般通过通过uri中的version来指定服务的版本，也可以通过header或者accept来指定</p>
-<p>对于get请求，前端有两种发起请求时携带参数的形式，一种是query参数，一种是path参数，两者在apifox中都写在Params中；在nestjs中通过Request注解来获取，前者对应的数据是req.requery，也可以直接通过Query注解获取</p>
-<p>对于post请求，请求参数放在body中，nestjs依然可以通过Request注解来获取，对应的数据是req.body，也可以通过Body注解获取</p>
-<blockquote>
-<blockquote>
+    <section class="markdown-content"><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>restful api：每个资源都有对应的url来标识，通过不同的请求方法来对这个资源进行操作</p>
+<h3 id="请求发送与接收"><a href="#请求发送与接收" class="headerlink" title="请求发送与接收"></a>请求发送与接收</h3><h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>对于get请求，前端有两种发起请求时携带参数的形式，一种是<code>query</code>参数，一种是动态<code>path</code>参数，两者在apifox中都写在Params中；在nestjs中通过<code>Request</code>注解来获取。</p>
+<p>前者对应的数据是req.query，也可以直接通过<code>Query</code>注解获取；</p>
+<p>后者通过在Get注解的路径参数中加入像<code>:id</code>这样的占位符，然后通过Request.params来获取，也可以直接通过<code>Param</code>注解来获取</p>
+<p>如果一个get请求既有路径参数，又有query参数，那么只能通过<code>Request</code>注解来获取</p>
+<h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><p>对于post请求，请求参数放在body中，nestjs依然可以通过<code>Request</code>注解来获取，对应的数据是req.body，也可以通过<code>Body</code>注解获取</p>
 <p>在Body和Query注解中传入参数后，将会只获得对应参数key的value</p>
+<p>除了以上注解外，还可以通过<code>Header</code>注解来获取请求头信息，可以用来获取cookie等</p>
+<blockquote>
+<p>版本控制：一般通过uri中的version来指定服务的版本，也可以通过header或者accept来指定</p>
 </blockquote>
-</blockquote>
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p>nestjs底层我们使用默认的express，安装好express-session和@types/express-session</p>
 </section>
     <!-- Tags START -->
     
@@ -177,13 +180,20 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/posts/30015/">
+      <a class="nav-left" href="/posts/19784/">
         <span class="nav-arrow">← </span>
         
-          前端面经
+          面试 | css
         
       </a>
     
+    
+      <a class="nav-right" href="/posts/12639/">
+        
+          设计模式六大原则
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -205,7 +215,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-nav-text">前置知识</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6"><span class="toc-nav-text">请求发送与接收</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#get"><span class="toc-nav-text">get</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#post"><span class="toc-nav-text">post</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#session"><span class="toc-nav-text">session</span></a></li></ol>
     
   </div>
 </aside>
