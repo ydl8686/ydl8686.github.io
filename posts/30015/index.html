@@ -10,7 +10,7 @@
   
   <title>
     
-      Ydl&#39;s Blog
+      前端面经 | Ydl&#39;s Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,8 +141,8 @@
 </header>
 
     <div id="article-banner">
-  <h2></h2>
-  <p class="post-date">2021-02-18</p>
+  <h2>前端面经</h2>
+  <p class="post-date">2022-12-31</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -150,12 +150,49 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Blog-Back-Up"><a href="#Blog-Back-Up" class="headerlink" title="Blog-Back-Up"></a>Blog-Back-Up</h1><h1 id="存储博客照片"><a href="#存储博客照片" class="headerlink" title="存储博客照片"></a>存储博客照片</h1></section>
+    <section class="markdown-content"><h2 id="1-并发请求数量控制"><a href="#1-并发请求数量控制" class="headerlink" title="1. 并发请求数量控制"></a>1. 并发请求数量控制</h2><p>有n个异步请求放在urls数组里需要发送，并且同一时刻的并发请求数量控制在maxNum个以内</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> concurrencyRequest = <span class="function">(<span class="params">urls, maxNum</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(urls.length===<span class="number">0</span>)&#123;</span><br><span class="line">      resolve([]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> results=[];</span><br><span class="line">    <span class="keyword">let</span> index=<span class="number">0</span>; <span class="comment">//要发送的请求的索引</span></span><br><span class="line">    <span class="keyword">let</span> num=<span class="number">0</span>; <span class="comment">// 已经发送了的请求数量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(index===urls.length)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> i=index;</span><br><span class="line">      <span class="keyword">const</span> url=urls[i];</span><br><span class="line">      index++;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> resp=<span class="keyword">await</span> fetch(url);</span><br><span class="line">        results[i]=resp;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">catch</span>(err)&#123;</span><br><span class="line">        result[i]=err;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">finally</span>&#123;</span><br><span class="line">        num++;</span><br><span class="line">        <span class="keyword">if</span>(num===urls.length)&#123;</span><br><span class="line">          resolve(results)</span><br><span class="line">        &#125;</span><br><span class="line">        request();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> times=<span class="built_in">Math</span>.min(maxNum, urls.length);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;times;i++)&#123;</span><br><span class="line">      request();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-浏览器渲染过程以及重绘-回流"><a href="#2-浏览器渲染过程以及重绘-回流" class="headerlink" title="2. 浏览器渲染过程以及重绘/回流"></a>2. 浏览器渲染过程以及重绘/回流</h2><h3 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h3><img src="https://segmentfault.com/img/bVvOCj?w=624&h=289">
+
+
+<h2 id="3-v-if和v-show"><a href="#3-v-if和v-show" class="headerlink" title="3. v-if和v-show"></a>3. v-if和v-show</h2><p>两者都可以用来控制元素的隐藏和显示</p>
+<p>v-show不管条件的真假，在第一次渲染的时候都会编译出来，DOM中加入该元素；之后切换时通过<code>display:none</code>来隐藏元素，去掉这一属性展示元素</p>
+<p>v-if则当条件为真时开始局部编译，动态向DOM里添加元素；条件为假时，局部编译，动态向DOM中删除元素</p>
+</section>
     <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#面试" >
+    <span class="tag-code">面试</span>
+  </a>
+
+      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
     
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/posts/19784/">
+        <span class="nav-arrow">← </span>
+        
+          面试#css
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/posts/23921/">
+        
+          nestjs
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
     <!-- NAV END -->
     <!-- 打赏 START -->
     
@@ -174,7 +211,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Blog-Back-Up"><span class="toc-nav-text">Blog-Back-Up</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%AD%98%E5%82%A8%E5%8D%9A%E5%AE%A2%E7%85%A7%E7%89%87"><span class="toc-nav-text">存储博客照片</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%B9%B6%E5%8F%91%E8%AF%B7%E6%B1%82%E6%95%B0%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-nav-text">1. 并发请求数量控制</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B%E4%BB%A5%E5%8F%8A%E9%87%8D%E7%BB%98-%E5%9B%9E%E6%B5%81"><span class="toc-nav-text">2. 浏览器渲染过程以及重绘&#x2F;回流</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">浏览器渲染过程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-v-if%E5%92%8Cv-show"><span class="toc-nav-text">3. v-if和v-show</span></a></li></ol>
     
   </div>
 </aside>
@@ -184,7 +221,7 @@
 
 <script>
   (function () {
-    var url = 'http://ydl8686.github.io/photos/README.html';
+    var url = 'http://ydl8686.github.io/posts/30015/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
