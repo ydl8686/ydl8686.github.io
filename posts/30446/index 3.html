@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="待葡萄成熟透">
+  <meta name="keyword" content="">
+  
+    <link rel="shortcut icon" type="image/ico" href="/抱抱.png"/>
+  
+  <title>
+    
+      📖算法 | 剑指offer | Ydl&#39;s Blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ydl's Blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>📖算法 | 剑指offer</h2>
+  <p class="post-date">2022-01-17</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="03-数组中重复的数字"><a href="#03-数组中重复的数字" class="headerlink" title="03 数组中重复的数字"></a>03 数组中重复的数字</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220117165147.png" width="90%"/>
+
+<h4 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h4><p>使用数据结构<code>Set</code>，利用其不会储存相同元素的特性来解决，不断往里面添加元素，看看Set大小有没有变，没变说明添加的就是重复的元素</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findRepeatNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> mySet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    <span class="keyword">let</span> size = mySet.size;</span><br><span class="line">    <span class="keyword">let</span> result = -<span class="number">1</span>;</span><br><span class="line">    nums.some(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        mySet.add(e);</span><br><span class="line">        <span class="keyword">if</span>(mySet.size === size) &#123;</span><br><span class="line">            result = e;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        size+=<span class="number">1</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在遍历数组<code>nums</code>的时候，不能采用<code>forEach</code>里return结果的方式，因为这样并不会跳出循环，<code>break</code>也是一样的；可以使用<code>some</code>和<code>every</code>方法来实现可跳出的循环，前者return true时跳出，后者return false跳出</p>
+<h4 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h4><p>可以使用原地交换的方式，因为题目中说<code>长度为n的数组，元素大小在[0,n-1]，有重复元素</code>，那么在建立索引和值的对应关系上，一定会出现某个索引对应了两个值的情况，该值就是重复的元素</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findRepeatNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] !== i)&#123;</span><br><span class="line">          <span class="comment">/*防止出现1，1，1的情况*/</span></span><br><span class="line">            <span class="keyword">if</span>(nums[nums[i]] === nums[i])&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">          <span class="comment">/*交换*/</span></span><br><span class="line">            [nums[nums[i]], nums[i]] =[nums[i], nums[nums[i]]]; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="04-二维数组中的查找"><a href="#04-二维数组中的查找" class="headerlink" title="04 二维数组中的查找"></a>04 二维数组中的查找</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220118101351.png" width="90%"/>
+
+<p>因为每行、每列都是递增顺序排列的，所以可以从右上角开始，如果当前数组中的数比<code>target</code>大，那么往左移；小，那么往下移；终止循环的条件是索引越界</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span>(<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> j = matrix[<span class="number">0</span>].length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;matrix.length-<span class="number">1</span> || j&lt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(target === matrix[i][j]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(matrix[i][j] &gt; target) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(matrix[i][j] &lt; target) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="05-替换空格"><a href="#05-替换空格" class="headerlink" title="05 替换空格"></a>05 替换空格</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220118103052.png" width="90%"/>
+
+<p>使用js的常用API就可以解决</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 法一</span></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s.split(<span class="string">&#x27; &#x27;</span>).join(<span class="string">&#x27;%20&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 法二</span></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 必须要有g，不然只会替换第一个</span></span><br><span class="line">    <span class="keyword">return</span> s.replace(<span class="regexp">/\s/g</span>, <span class="string">&#x27;%20&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>str.replace(/^\s+|\s+$/g, &#39;haloha&#39;)</code><br><code>\s</code> : 表示 space ，空格<br><code>+</code>： 一个或多个<br><code>^</code>： 开始，<code>^\s</code>，以空格开始<br><code>$</code>： 结束，<code>\s$</code>，以空格结束<br><code>|</code>： 或者<br><code>/g</code>：global， 全局</p>
+</blockquote>
+<h3 id="06-从尾到头打印链表"><a href="#06-从尾到头打印链表" class="headerlink" title="06 从尾到头打印链表"></a>06 从尾到头打印链表</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220118105134.png" width="90%"/>
+
+<p>先顺序遍历，把结果放到数组里，再<code>reverse</code>一下；或者使用<code>unshift()</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 法一</span></span><br><span class="line"><span class="keyword">var</span> reversePrint = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">while</span>(head) &#123;</span><br><span class="line">        result.push(head.val);</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    result.reverse();</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 法二</span></span><br><span class="line"><span class="keyword">var</span> reversePrint = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">while</span>(head) &#123;</span><br><span class="line">      <span class="comment">/*在数组首位置添加元素*/</span></span><br><span class="line">        result.unshift(head.val);</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="07-重建二叉树"><a href="#07-重建二叉树" class="headerlink" title="07 重建二叉树"></a>07 重建二叉树</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220118113443.png" width="90%"/>
+
+<p>核心是递归，根据<code>preorder</code>里的第一个元素，可以把<code>inorder</code>划分成左子树和右子树，<strong>再根据<code>inoder</code>里子树的大小，将<code>preorder</code>里划分成左子树和右子树</strong>，然后对应的进行递归操作即可</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">preorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">inorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> buildTree = <span class="function"><span class="keyword">function</span>(<span class="params">preorder, inorder</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">    <span class="comment">// 特殊情况</span></span><br><span class="line">    <span class="comment">// if(preorder.length === 1)&#123;</span></span><br><span class="line">    <span class="comment">//     return result;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// else if(preorder.length === 0)&#123;</span></span><br><span class="line">    <span class="comment">//     return null;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">let</span> index = inorder.indexOf(preorder[<span class="number">0</span>]);</span><br><span class="line">    result.left = buildTree(preorder.slice(<span class="number">1</span>, <span class="number">1</span>+index), inorder.slice(<span class="number">0</span>, index));</span><br><span class="line">    result.right = buildTree(preorder.slice(<span class="number">1</span>+index), inorder.slice(index+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="10-斐波那契数列"><a href="#10-斐波那契数列" class="headerlink" title="10 斐波那契数列"></a>10 斐波那契数列</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220201172355.png" width="90%"/>
+
+<h4 id="解法1（动态规划）"><a href="#解法1（动态规划）" class="headerlink" title="解法1（动态规划）"></a>解法1（动态规划）</h4><p>使用最简单的递归方法，，果然超时了，函数的入栈出栈的时间成本还是太高了，所以用了最简单的迭代，不过空间复杂度是O(N)，比较占用内存</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n === <span class="number">0</span> || n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> arr = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">2</span>; i&lt;=n; i++) &#123;</span><br><span class="line">        arr[i] = (arr[i-<span class="number">1</span>] + arr[i-<span class="number">2</span>])%<span class="number">1000000007</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr[n];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 还可以继续优化，因为n只与n-1，n-2有关，所以可以将空间复杂度降至O（1）</span></span><br></pre></td></tr></table></figure>
+<h4 id="解法2-1"><a href="#解法2-1" class="headerlink" title="解法2"></a>解法2</h4><p>使用递归的同时，再开辟一个新的数组用来存储已经算过的项，避免重复；例如算n-1和n-2这两项的时候都会用到第n-3项。所以在使用某一项的时候先看看这个数组里面有没有值，没有值再递归计算赋值</p>
+<p>不过这样时间复杂度和空间复杂度都好高啊，还是使用动态规划最好</p>
+<blockquote>
+<p>青蛙跳台阶也可以转换成类似的想法，关键是得到<code>f(n)=f(n-1)+f(n-2)</code>这个不变式</p>
+</blockquote>
+<h3 id="11-旋转数组的最小数字"><a href="#11-旋转数组的最小数字" class="headerlink" title="11 旋转数组的最小数字"></a>11 旋转数组的最小数字</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220201180531.png" width="90%" />
+
+
+<p>线性遍历数组，发现后一个比前一个小，那么后一个就是答案；如果遍历完都没找到就说明这个数组是升序排列，返回第一个就好；时间复杂度O（N）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> minArray = <span class="function"><span class="keyword">function</span>(<span class="params">numbers</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;numbers.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[i+<span class="number">1</span>] &lt; numbers[i])&#123;</span><br><span class="line">            <span class="keyword">return</span> numbers[i+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> numbers[<span class="number">0</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="12-矩阵中的路径🌟"><a href="#12-矩阵中的路径🌟" class="headerlink" title="12 矩阵中的路径🌟"></a>12 矩阵中的路径🌟</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230211220546.png" width="75%">
+
+<blockquote>
+<p>回溯</p>
+</blockquote>
+<p>本题的思路核心是回溯，每次判断完一条路径是否符合条件后，要及时把状态恢复，以便其他条件递归</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> exist = <span class="function"><span class="keyword">function</span>(<span class="params">board, word</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;board.length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">            <span class="comment">// 特殊情况，要判断的word只有一个字符</span></span><br><span class="line">            <span class="keyword">if</span>(word.length===<span class="number">1</span> &amp;&amp; board[i][j]===word.charAt(<span class="number">0</span>))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(board[i][j]===word.charAt(<span class="number">0</span>))&#123;</span><br><span class="line">                <span class="keyword">if</span>(help(board,word.substring(<span class="number">1</span>),i,j))&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来判断某一个字符是否存在符合条件的下一个字符</span></span><br><span class="line"><span class="keyword">var</span> help = <span class="function">(<span class="params">board, word, i, j</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 用来记录i,j位置的元素，用来回溯</span></span><br><span class="line">    <span class="keyword">let</span> temp=board[i][j];</span><br><span class="line">    <span class="comment">// 确保不会出现重复使用的情况</span></span><br><span class="line">    board[i][j]=<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">let</span> target = word.charAt(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> signal1=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> signal2=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> signal3=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> signal4=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> res1=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> res2=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> res3=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> res4=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断四个方向是否可行，并分别进行递归判断</span></span><br><span class="line">    <span class="keyword">if</span>(j+<span class="number">1</span>&lt;board[<span class="number">0</span>].length &amp;&amp; board[i][j+<span class="number">1</span>]===target)&#123;</span><br><span class="line">        signal1=<span class="literal">true</span>;</span><br><span class="line">        res1=help(board, word.substring(<span class="number">1</span>),i,j+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+<span class="number">1</span>&lt;board.length &amp;&amp; board[i+<span class="number">1</span>][j]===target)&#123;</span><br><span class="line">        signal2=<span class="literal">true</span>;</span><br><span class="line">        res2=help(board, word.substring(<span class="number">1</span>),i+<span class="number">1</span>,j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j-<span class="number">1</span>&gt;=<span class="number">0</span> &amp;&amp; board[i][j-<span class="number">1</span>]===target)&#123;</span><br><span class="line">        signal3=<span class="literal">true</span>;</span><br><span class="line">        res3=help(board, word.substring(<span class="number">1</span>),i,j-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i-<span class="number">1</span>&gt;=<span class="number">0</span> &amp;&amp; board[i-<span class="number">1</span>][j]===target)&#123;</span><br><span class="line">        signal4=<span class="literal">true</span>;</span><br><span class="line">        res4=help(board, word.substring(<span class="number">1</span>),i-<span class="number">1</span>,j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前状态的恢复</span></span><br><span class="line">    board[i][j]=temp;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结果判定</span></span><br><span class="line">    <span class="keyword">if</span>(word.length===<span class="number">1</span> &amp;&amp; (signal1||signal2||signal3||signal4))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(signal1||signal2||signal3||signal4)&#123;</span><br><span class="line">        <span class="keyword">return</span> res1||res2||res3||res4;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-删除链表的倒数第-N-个结点"><a href="#19-删除链表的倒数第-N-个结点" class="headerlink" title="19 删除链表的倒数第 N 个结点"></a>19 删除链表的倒数第 N 个结点</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230209225941.png" width="90%">
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeNthFromEnd = <span class="function"><span class="keyword">function</span>(<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> p=head;</span><br><span class="line">    <span class="keyword">let</span> target=head;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;n-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        p=p.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> pre=head;</span><br><span class="line">    <span class="keyword">while</span>(p.next)&#123;</span><br><span class="line">        pre=target;</span><br><span class="line">        p=p.next;</span><br><span class="line">        target=target.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/** 特殊情况，要删除的节点是头节点</span></span><br><span class="line"><span class="comment">     链表只有一个元素，删除这个元素也可以归为上面👆“要删除的节点是头节点”这一类 **/</span></span><br><span class="line">    <span class="keyword">if</span>(head===target)&#123;</span><br><span class="line">        <span class="keyword">return</span> target.next;</span><br><span class="line">    &#125;</span><br><span class="line">    pre.next=target.next;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="29-顺时针打印矩阵"><a href="#29-顺时针打印矩阵" class="headerlink" title="29 顺时针打印矩阵"></a>29 顺时针打印矩阵</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230212155947.png" width="65%">
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> spiralOrder = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result=[];</span><br><span class="line">    <span class="comment">// 判断数组是否为空</span></span><br><span class="line">    <span class="comment">// 不能[]===[] //false</span></span><br><span class="line">    <span class="keyword">if</span>(matrix.length===<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    help(matrix,result,<span class="number">0</span>,<span class="number">0</span>,matrix[<span class="number">0</span>].length-<span class="number">1</span>,matrix.length-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> help=<span class="function">(<span class="params">matrix,result,l,t,r,b</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l===r &amp;&amp; t===b)&#123;</span><br><span class="line">        result.push(matrix[t][l]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;r || t&gt;b)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;r &amp;&amp; t==b)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">            result.push(matrix[t][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(t&lt;b &amp;&amp; l==r)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=t;i&lt;=b;i++)&#123;</span><br><span class="line">            result.push(matrix[i][r]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">            result.push(matrix[t][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=t+<span class="number">1</span>;i&lt;=b;i++)&#123;</span><br><span class="line">            result.push(matrix[i][r]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=r-<span class="number">1</span>;i&gt;=l;i--)&#123;</span><br><span class="line">            result.push(matrix[b][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=b-<span class="number">1</span>;i&gt;t;i--)&#123;</span><br><span class="line">            result.push(matrix[i][l]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    l++;</span><br><span class="line">    t++;</span><br><span class="line">    r--;</span><br><span class="line">    b--;</span><br><span class="line">    help(matrix,result,l,t,r,b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="38-字符串的排列🌟"><a href="#38-字符串的排列🌟" class="headerlink" title="38 字符串的排列🌟"></a>38 字符串的排列🌟</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230212145649.png" width="50%">
+
+<blockquote>
+<p>回溯</p>
+</blockquote>
+<p>考察的是DFS+回溯，回溯体现在数组和字符串上，需要注意的是当字符串只有一个字符时的特殊情况</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 数组在某个index添加删除元素</span></span><br><span class="line"><span class="keyword">var</span> permutation = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!s)&#123;</span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> strArr=s.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> result=<span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    <span class="keyword">let</span> temp=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;strArr.length;i++)&#123;</span><br><span class="line">        temp+=strArr[i];</span><br><span class="line">        <span class="keyword">let</span> char=strArr[i];</span><br><span class="line">        <span class="keyword">let</span> charIndex=strArr.indexOf(char);</span><br><span class="line">        strArr.splice(charIndex,<span class="number">1</span>);</span><br><span class="line">        help(strArr,result,temp);</span><br><span class="line">        temp=temp.substring(<span class="number">0</span>,temp.length-<span class="number">1</span>);</span><br><span class="line">        strArr.splice(charIndex,<span class="number">0</span>,char);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(result);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> help=<span class="function">(<span class="params">strArr,result,temp</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 两种情况</span></span><br><span class="line">    <span class="keyword">if</span>(strArr.length===<span class="number">0</span>)&#123;</span><br><span class="line">        result.add(temp);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(strArr.length===<span class="number">1</span>)&#123;</span><br><span class="line">        temp+=strArr[<span class="number">0</span>];</span><br><span class="line">        result.add(temp);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;strArr.length;i++)&#123;</span><br><span class="line">            temp+=strArr[i];</span><br><span class="line">            <span class="keyword">let</span> char=strArr[i];</span><br><span class="line">            <span class="keyword">let</span> charIndex=strArr.indexOf(char);</span><br><span class="line">            strArr.splice(charIndex,<span class="number">1</span>);</span><br><span class="line">            help(strArr,result,temp);</span><br><span class="line">            temp=temp.substring(<span class="number">0</span>,temp.length-<span class="number">1</span>);</span><br><span class="line">            strArr.splice(charIndex,<span class="number">0</span>,char);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="44-数字序列中某一位的数字"><a href="#44-数字序列中某一位的数字" class="headerlink" title="44 数字序列中某一位的数字"></a>44 数字序列中某一位的数字</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230303165204.png" width="85%"/>
+
+<p>找规律，计算不同位数占用索引的多少，倒推给定的n属于哪一个数，然后找到对应的某一位即可</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findNthDigit = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">10</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> i=<span class="number">1</span>; <span class="comment">// i表示n所在数字的位数</span></span><br><span class="line">    <span class="keyword">let</span> cp=n;</span><br><span class="line">    <span class="keyword">while</span>(cp-(<span class="built_in">Math</span>.pow(<span class="number">10</span>,i)-<span class="built_in">Math</span>.pow(<span class="number">10</span>,i-<span class="number">1</span>))*i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        cp=cp-(<span class="built_in">Math</span>.pow(<span class="number">10</span>,i)-<span class="built_in">Math</span>.pow(<span class="number">10</span>,i-<span class="number">1</span>))*i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    cp=cp-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> t=<span class="built_in">Math</span>.floor(cp/i);</span><br><span class="line">    <span class="keyword">let</span> m=cp%i;</span><br><span class="line">    <span class="keyword">let</span> tempResult=<span class="built_in">Math</span>.pow(<span class="number">10</span>,i-<span class="number">1</span>)+t;</span><br><span class="line">    <span class="keyword">return</span> (tempResult+<span class="string">&#x27;&#x27;</span>).charAt(m);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="50-第一个只出现一次的字符"><a href="#50-第一个只出现一次的字符" class="headerlink" title="50 第一个只出现一次的字符"></a>50 第一个只出现一次的字符</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20220822221541.png" width="82%">
+
+<h4 id="解法1-1"><a href="#解法1-1" class="headerlink" title="解法1"></a>解法1</h4><p>用两个数组来解决这个问题，一个数组用来存储遍历过的字符，一个数组用来存储已经重复过的的字符；遍历时遇到的字符在这两个数组内都没有出现时，进入第一个数组；如果在第一个数组中出现了，那么从第一个数组中剔除，并加入第二个数组；其余情况都不用考虑</p>
+<p>不过好像其实也没有降低时间复杂度，因为使用到了<code>indexOf</code>来查找重复字符的索引，如果让自己来实现的话，又是O(N)的复杂度，综合下来还是O(N2)时间复杂度</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!s)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> temp = [];</span><br><span class="line">    <span class="keyword">let</span> dupTemp = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dupTemp.indexOf(s[i]) === -<span class="number">1</span> &amp;&amp; temp.indexOf(s[i]) === -<span class="number">1</span>)&#123;</span><br><span class="line">            temp.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(temp.indexOf(s[i]) !== -<span class="number">1</span>)&#123;</span><br><span class="line">            temp.splice(temp.indexOf(s[i]), <span class="number">1</span>);</span><br><span class="line">            dupTemp.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp[<span class="number">0</span>]?temp[<span class="number">0</span>]:<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="解法2-2"><a href="#解法2-2" class="headerlink" title="解法2"></a>解法2</h4><p>使用map来解决；需要注意到的是，map对象是乱序的；但是按照<code>key</code>,<code>value</code>的形式来遍历时，是按照插入的顺序进行的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;s.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> cur = s.charAt(i);</span><br><span class="line">        <span class="keyword">if</span>(map.has(cur))&#123;</span><br><span class="line">            <span class="comment">// 如果已经出现过这个字符，那么设为false</span></span><br><span class="line">            map.set(cur,<span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 第一次遇到设置成true</span></span><br><span class="line">            map.set(cur,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>([key,value] <span class="keyword">of</span> map)&#123;</span><br><span class="line">        <span class="keyword">if</span>(value)&#123;</span><br><span class="line">            <span class="keyword">return</span> key;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27; &#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#算法" >
+    <span class="tag-code">算法</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/posts/14402/">
+        <span class="nav-arrow">← </span>
+        
+          js常用API
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/posts/55448/">
+        
+          面试 | js
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-nav-text">03 数组中重复的数字</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%951"><span class="toc-nav-text">解法1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%952"><span class="toc-nav-text">解法2</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-nav-text">04 二维数组中的查找</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-nav-text">05 替换空格</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#06-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8"><span class="toc-nav-text">06 从尾到头打印链表</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#07-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-nav-text">07 重建二叉树</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-nav-text">10 斐波那契数列</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%951%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89"><span class="toc-nav-text">解法1（动态规划）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%952-1"><span class="toc-nav-text">解法2</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="toc-nav-text">11 旋转数组的最小数字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84%F0%9F%8C%9F"><span class="toc-nav-text">12 矩阵中的路径🌟</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-N-%E4%B8%AA%E7%BB%93%E7%82%B9"><span class="toc-nav-text">19 删除链表的倒数第 N 个结点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5"><span class="toc-nav-text">29 顺时针打印矩阵</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#38-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%F0%9F%8C%9F"><span class="toc-nav-text">38 字符串的排列🌟</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#44-%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-nav-text">44 数字序列中某一位的数字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#50-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-nav-text">50 第一个只出现一次的字符</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%951-1"><span class="toc-nav-text">解法1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E6%B3%952-2"><span class="toc-nav-text">解法2</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://ydl8686.github.io/posts/30446/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2023 | Article by <a target="_blank" rel="noopener" href="https://github.com/ydl8686">ydl</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
