@@ -188,45 +188,10 @@
 <li>添加seq/ack机制，确保数据发送到对端</li>
 <li>添加超时重传机制</li>
 </ul>
-<h3 id="输入url到出现页面的过程"><a href="#输入url到出现页面的过程" class="headerlink" title="输入url到出现页面的过程"></a>输入url到出现页面的过程</h3><ol>
-<li><p>url中的host可以是ip地址也可以是域名，如果是域名则需要将域名解析为ip地址</p>
-  <img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230227160436.png" />
-
-<ol>
-<li>查看本地hosts文件是否有相关规则</li>
-<li>发送DNS请求到本地DNS服务器查询，本地DNS服务器会首先查询它的缓存记录，如果缓存中有此条记录，就可以直接返回结果，如果没有，本地DNS服务器还要向DNS根服务器进行查询<ul>
-<li>递归查询</li>
-<li>迭代查询</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>建立TCP连接</p>
-</li>
-<li><p>发送HTTP请求</p>
-</li>
+<ol start="3">
+<li><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3></li>
 </ol>
 <blockquote>
-<p>或者是HTTPS</p>
-</blockquote>
-<ol>
-<li><p>服务器处理请求并返回HTTP报文</p>
-</li>
-<li><p>浏览器拿到数据后处理渲染页面</p>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230227161033.png" />
-
-<ol>
-<li>处理 HTML 标记并构建 DOM 树。</li>
-<li>处理 CSS 标记并构建 CSSOM 树。</li>
-<li>将 DOM 与 CSSOM 合并成一个渲染树。</li>
-<li>根据渲染树来布局，以计算每个节点的几何信息。</li>
-<li>将各个节点绘制到屏幕上。</li>
-</ol>
-</li>
-<li><p>断开连接</p>
-</li>
-</ol>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><blockquote>
 <p>上级作用域指的是创建时的上级而不是调用的上级，与this指针不同</p>
 </blockquote>
 <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>闭包是指能够访问另一个函数内部变量的函数，创建闭包最常见的方式就是将函数作为返回值</p>
@@ -244,21 +209,7 @@
 <blockquote>
 <p>受现代JavaScript 的限制 (以及废弃<code>Object.observe</code>)，Vue2不能检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行<code>getter/setter</code> 转化过程，所以属性必须在 <code>data</code> 对象上存在才能让Vue转换它，这样才能让它是响应的。</p>
 </blockquote>
-<h3 id="http各个版本区别"><a href="#http各个版本区别" class="headerlink" title="http各个版本区别"></a>http各个版本区别</h3><h4 id="http-0-9"><a href="#http-0-9" class="headerlink" title="http/0.9"></a>http/0.9</h4><p>只支持GET方法；只能回应HTML格式的字符串，不能回应别的格式</p>
-<h4 id="http-1-0"><a href="#http-1-0" class="headerlink" title="http/1.0"></a>http/1.0</h4><p>任何格式的内容都可以发送；除了GET命令，还引入了POST命令和HEAD命令；请求和回应的格式也发生变化；新增状态码等</p>
-<p>每个TCP连接只能发送一个请求，发送数据完毕，连接就关闭</p>
-<h4 id="http-1-1（主流）"><a href="#http-1-1（主流）" class="headerlink" title="http/1.1（主流）"></a>http/1.1（主流）</h4><p>持久连接，TCP连接默认不关闭，可以被多个请求复用；同一个TCP连接里面，客户端可以通过<strong>pipeline</strong>同时发送多个请求，但是响应的时候必须按照发送的顺序接收；请求头信息新增host字段；报文主体压缩</p>
-<p>同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着（<strong>队头堵塞</strong>）</p>
-<blockquote>
-<p>解决队头阻塞：减少请求的次数（精灵图）；域名分片，因为一个域名的连接数是有限的，所以划分多个子域名来处理请求</p>
-</blockquote>
-<h4 id="http-2"><a href="#http-2" class="headerlink" title="http/2"></a>http/2</h4><p>头信息和数据体都是二进制，并且统称为”帧”；<strong>多路复用</strong>，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应，而且不用按照顺序一一对应，可以通过流标识符来进行重组，从而避免了”队头堵塞”；允许服务器主动向客户端发送资源，这叫做服务器推送；HPACK首部压缩</p>
-<p>请求的很多字段都是重复的，比如Cookie和User Agent，一模一样的内容，每次请求都必须附带，这会浪费很多带宽，也影响速度；DDoS攻击，一直主动发送资源</p>
-<blockquote>
-<p>http/2解决队头阻塞只是应用层表面，然而还是基于传输层TCP的，收不到还是会要等待重传造成阻塞</p>
-</blockquote>
-<h4 id="http-3"><a href="#http-3" class="headerlink" title="http/3"></a>http/3</h4><p>使用UDP+QUIC的方式，其中QUIC整合了TCP以及TLS握手过程</p>
-<h3 id="https加密过程"><a href="#https加密过程" class="headerlink" title="https加密过程"></a>https加密过程</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230228103333.png" />
+<h3 id="https加密过程"><a href="#https加密过程" class="headerlink" title="https加密过程"></a>https加密过程</h3><img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230228103333.png" width='70%'/>
 
 <h3 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h3><p>WebSocket是一种在单个TCP连接上进行全双工通信的协议，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，允许服务端主动向客户端推送数据</p>
 <p>在 WebSocket出现以前，使用HTTP创建一个和服务端进双通道通信的 web 应用，需要进行不停的轮询，这会导致一些问题：</p>
@@ -299,9 +250,9 @@
 <blockquote>
 <p>因此，参数是一个对象时，函数内部尽量不要修改函数外部的值</p>
 </blockquote>
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230303101356.png" width='60%'/>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230303101356.png" width='50%'/>
 
-<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230303101439.png" width='70%' />
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230303101439.png" width='50%' />
 
 <blockquote>
 <p>基本数据类型的赋值是把值拷贝一份，而引用数据类型则是拷贝对象在堆上的地址，不会新创建对象</p>
@@ -319,7 +270,9 @@
 <h5 id="定位中的百分比"><a href="#定位中的百分比" class="headerlink" title="定位中的百分比"></a>定位中的百分比</h5><p>如果元素为静态（ static ）或相对定位（ relative ），包含块一般是其父容器；</p>
 <p>如果元素为绝对定位（ absolute ），包含块应该是离它最近的 position 为 absolute 、 relative 或 fixed 的祖先元素；</p>
 <p>如果元素为固定定位（ fixed ），包含块就是视窗（ viewport ）</p>
-<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><h4 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h4><h3 id="HTTP缓存与CDN缓存"><a href="#HTTP缓存与CDN缓存" class="headerlink" title="HTTP缓存与CDN缓存"></a>HTTP缓存与CDN缓存</h3><h4 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a>HTTP缓存</h4><p>缓存是一种保存资源副本并在下次请求时直接使用该副本的技术，当 web 缓存发现请求的资源已经被存储，那么直接使用该资源的拷贝，而不会去再次请求服务端</p>
+<h3 id="HTTP缓存与CDN缓存"><a href="#HTTP缓存与CDN缓存" class="headerlink" title="HTTP缓存与CDN缓存"></a>HTTP缓存与CDN缓存</h3><h4 id="HTTP缓存（客户端缓存）"><a href="#HTTP缓存（客户端缓存）" class="headerlink" title="HTTP缓存（客户端缓存）"></a>HTTP缓存（客户端缓存）</h4><p>缓存是一种保存资源副本并在下次请求时直接使用该副本的技术，当 web 缓存发现请求的资源已经被存储，那么直接使用该资源的拷贝，而不会去再次请求服务端</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230308195220.png" width='80%'/>
+
 <p>根据<strong>是否需要重新向服务器发起请求</strong>可以分成两种：强制缓存和对比/协商缓存</p>
 <h5 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h5><ol>
 <li>客户端请求数据</li>
@@ -346,10 +299,48 @@
 <li>服务端返回304，未变更，客户端直接使用缓存数据；否则返回最新数据以及缓存规则</li>
 </ol>
 <p><strong>Last-Modified（响应）/If-Modified-Since（请求）</strong></p>
-<p>服务端响应请求时，会带上Last-Modified字段告诉浏览器这个资源的<strong>最后修改时间</strong>；浏览器后来再次请求时，带上If-Modified-Since字段发给服务端；服务端通过对比资源最后的修改时间来判断是否能使用缓存</p>
+<p>服务端响应请求时，会带上Last-Modified字段告诉浏览器这个资源的==最后修改时间==；浏览器后来再次请求时，带上If-Modified-Since字段发给服务端；服务端通过对比资源最后的修改时间来判断是否能使用缓存</p>
 <p><strong>Etag（响应）/If-None-Match（请求）</strong></p>
 <p>优先级比Last-Modified/If-Modified-Since更高；</p>
-<p>服务端响应请求时，会带上Etag字段告诉浏览器这个资源在服务器的<strong>唯一标识</strong>；浏览器后来再次请求时，带上If-None-Match字段发给服务端；服务端对比这个If-None-Match和这个资源现在的Etag是否一致来判断是否能使用缓存</p>
+<p>服务端响应请求时，会带上Etag字段告诉浏览器这个资源在服务器的==唯一标识==；浏览器后来再次请求时，带上If-None-Match字段发给服务端；服务端对比这个If-None-Match和这个资源现在的Etag是否一致来判断是否能使用缓存</p>
+<h4 id="CDN缓存（服务端缓存）"><a href="#CDN缓存（服务端缓存）" class="headerlink" title="CDN缓存（服务端缓存）"></a>CDN缓存（服务端缓存）</h4><p>将源站上的资源缓存到各地的==边缘服务器==节点上，当用户访问该资源时，cdn再通过==负载均衡==将用户的请求调度到最近的缓存节点上</p>
+<img src="https://ydl8023.oss-cn-beijing.aliyuncs.com/20230308200906.png" />
+
+<blockquote>
+<p>s-maxage=0、max-age=0、no-cache、no-store、private中的任一种时候，该类型文件就被认定为不缓存文件，所有请求直接转发源站；只有当存在缓存且缓存过期的时候，才会与源站对比缓存是否被修改。</p>
+</blockquote>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>同源：协议、域名、端口缺一不同源；限制发送Ajax非同源请求、获取非同源的DOM、读取非同源的Cookie/LocalStorage等</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><h5 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h5><p>使用img、script、link标签中的src来进行跨域get请求</p>
+<p>缺点在于需要后端配合，将返回结果包装成callback(res)的形式</p>
+<blockquote>
+<p>如果黑客通过这种方式对服务器进行攻击，可以通过设置页面的==内容安全协议csp==进行防范</p>
+</blockquote>
+<h5 id="cors跨域"><a href="#cors跨域" class="headerlink" title="cors跨域"></a>cors跨域</h5><p>简单请求：直接发送请求到服务器，只请求一次</p>
+<ol>
+<li>请求方式是GET/POST/HEAD</li>
+<li>请求头限制：Accept、Accept-Language、Content-Language、Content-Type、Last-Event-ID</li>
+<li>Content-type值为application/x-www-form-urlencoded、multipart/form-data、text/plain</li>
+</ol>
+<p>复杂请求：会在正式请求发送之前，先发一个预检options请求进行校验，校验通过后才能进行正式请求</p>
+<h3 id="vue双向绑定"><a href="#vue双向绑定" class="headerlink" title="vue双向绑定"></a>vue双向绑定</h3><p>vue的双向绑定是指数据和视图的修改会影响另外一方。通过js方法修改数据时，页面会相应变化；修改页面时，数据也会更新；后者是通过addEventLisenter增加监听事件来实现的</p>
+<p>vue是通过数据劫持和发布-订阅者模式实现<strong>修改数据更新视图</strong>的，vue2中通过Object.defineProperty方法来劫持各个属性，当触发对象属性的setter时，会通知订阅者触发相应的监听回调。主要流程如下</p>
+<ul>
+<li><p>new Vue实例的时候会调用Observer和Compile，Observer来完成数据劫持（value丢失问题），Compile负责解析原先的dom，通过createDocumentFragment将要处理的dom放到临时内存里，统一处理后再append到vue挂载的dom上初始化视图</p>
+</li>
+<li><p>发布订阅者模式实现和Dependency、Watcher两个类有关；Dependency维护了一个订阅者数组，以及两个方法，添加订阅者和通知数组内所有订阅者调用监听回调的方法。Watcher则是有监听的对象、监听的属性和属性发生修改的回调函数，对外暴露一个update方法给Dependency调用，内部再调用监听的回调函数</p>
+</li>
+<li><p>在Compile里会new Watcher ，不同的nodeType会有不同监听回调的Watcher，在Compile里告诉Watcher具体要的回调要怎么处理；new Watcher的时候会去访问对应的属性，为的是触发这个key的getter，在这个getter里将watcher加入到dependency的订阅数组里（为什么Dependency是在Observer里创建？）；setter则是负责调用dependency的notify</p>
+</li>
+</ul>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>是什么：静态打包工具、管理模块依赖</p>
+<p>作用：编译代码，es6转es5，解决浏览器兼容问题；模块整合，解决浏览器频繁请求文件的问题；</p>
+<p>构建流程：初始化阶段、编译构建阶段、输出阶段</p>
+<h3 id="webpack和vite"><a href="#webpack和vite" class="headerlink" title="webpack和vite"></a>webpack和vite</h3><p>webpack先打包再启动开发服务器；vite是直接启动开发服务器，然后按需编译依赖文件，所以vite的请求速度更快</p>
+<h3 id="package-json和package-lock-json的区别"><a href="#package-json和package-lock-json的区别" class="headerlink" title="package.json和package-lock.json的区别"></a>package.json和package-lock.json的区别</h3><p>前者是npm init时生成的，用来描述项目及项目依赖的模块信息</p>
+<p>后者是npm install生成的，用来记录node_modules里所有模块的版本信息、来源以及依赖的小版本信息</p>
+<blockquote>
+<p>为什么还要package-lock.json：包含resolved下载地址和requires相关依赖，所以相对下载速度也更快</p>
+</blockquote>
 </section>
     <!-- Tags START -->
     
@@ -368,13 +359,20 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/posts/6065/">
+      <a class="nav-left" href="/posts/26641/">
         <span class="nav-arrow">← </span>
         
-          Linux#6 | 用户和组群账户管理
+          📖算法 | 每日一题
         
       </a>
     
+    
+      <a class="nav-right" href="/posts/14980/">
+        
+          面试 | vue
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -396,7 +394,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#UDP%E5%92%8CTCP%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%81%E4%BC%98%E5%8A%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E6%9B%B4%E5%8F%AF%E9%9D%A0"><span class="toc-nav-text">UDP和TCP的区别、使用场景、优劣，如何让UDP更可靠</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-text">使用场景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%90%84%E8%87%AA%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-nav-text">各自优缺点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E6%9B%B4%E5%8F%AF%E9%9D%A0"><span class="toc-nav-text">如何让UDP更可靠</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5url%E5%88%B0%E5%87%BA%E7%8E%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">输入url到出现页面的过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-nav-text">闭包</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-nav-text">定义</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-nav-text">实际应用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-nav-text">作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-nav-text">缺点</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="toc-nav-text">Vue响应式原理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#http%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">http各个版本区别</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#http-0-9"><span class="toc-nav-text">http&#x2F;0.9</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#http-1-0"><span class="toc-nav-text">http&#x2F;1.0</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#http-1-1%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89"><span class="toc-nav-text">http&#x2F;1.1（主流）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#http-2"><span class="toc-nav-text">http&#x2F;2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#http-3"><span class="toc-nav-text">http&#x2F;3</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#https%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">https加密过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#websocket"><span class="toc-nav-text">websocket</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-nav-text">特点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9C%A8%E7%BA%BF%E7%A6%BB%E7%BA%BF%E9%97%AE%E9%A2%98%E2%80%93%E6%97%B6%E9%97%B4%E6%88%B3"><span class="toc-nav-text">在线离线问题–时间戳</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%AD%E7%BA%BF%E9%97%AE%E9%A2%98%E2%80%93%E5%BF%83%E8%B7%B3%E6%A3%80%E6%B5%8B"><span class="toc-nav-text">断线问题–心跳检测</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-nav-text">数据类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-nav-text">基本数据类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="toc-nav-text">区别</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#css%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8D%95%E4%BD%8D"><span class="toc-nav-text">css中的一些单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#em%E5%92%8Crem"><span class="toc-nav-text">em和rem</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#vh%E3%80%81vw%E3%80%81vmin%E3%80%81vmax"><span class="toc-nav-text">vh、vw、vmin、vmax</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link"><span class="toc-nav-text">%</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">盒模型中的百分比</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">文本中的百分比</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%AE%9A%E4%BD%8D%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">定位中的百分比</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-nav-text">HTTP状态码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1XX"><span class="toc-nav-text">1XX</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP%E7%BC%93%E5%AD%98%E4%B8%8ECDN%E7%BC%93%E5%AD%98"><span class="toc-nav-text">HTTP缓存与CDN缓存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#HTTP%E7%BC%93%E5%AD%98"><span class="toc-nav-text">HTTP缓存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98"><span class="toc-nav-text">强制缓存</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%AF%B9%E6%AF%94-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-nav-text">对比&#x2F;协商缓存</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#UDP%E5%92%8CTCP%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%81%E4%BC%98%E5%8A%A3%EF%BC%8C%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E6%9B%B4%E5%8F%AF%E9%9D%A0"><span class="toc-nav-text">UDP和TCP的区别、使用场景、优劣，如何让UDP更可靠</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-text">使用场景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%90%84%E8%87%AA%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-nav-text">各自优缺点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E6%9B%B4%E5%8F%AF%E9%9D%A0"><span class="toc-nav-text">如何让UDP更可靠</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-nav-text">闭包</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-nav-text">定义</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-nav-text">实际应用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-nav-text">作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-nav-text">缺点</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="toc-nav-text">Vue响应式原理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#https%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">https加密过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#websocket"><span class="toc-nav-text">websocket</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-nav-text">特点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9C%A8%E7%BA%BF%E7%A6%BB%E7%BA%BF%E9%97%AE%E9%A2%98%E2%80%93%E6%97%B6%E9%97%B4%E6%88%B3"><span class="toc-nav-text">在线离线问题–时间戳</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%AD%E7%BA%BF%E9%97%AE%E9%A2%98%E2%80%93%E5%BF%83%E8%B7%B3%E6%A3%80%E6%B5%8B"><span class="toc-nav-text">断线问题–心跳检测</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-nav-text">数据类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-nav-text">基本数据类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="toc-nav-text">区别</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#css%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8D%95%E4%BD%8D"><span class="toc-nav-text">css中的一些单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#em%E5%92%8Crem"><span class="toc-nav-text">em和rem</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#vh%E3%80%81vw%E3%80%81vmin%E3%80%81vmax"><span class="toc-nav-text">vh、vw、vmin、vmax</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link"><span class="toc-nav-text">%</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">盒模型中的百分比</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">文本中的百分比</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%AE%9A%E4%BD%8D%E4%B8%AD%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94"><span class="toc-nav-text">定位中的百分比</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP%E7%BC%93%E5%AD%98%E4%B8%8ECDN%E7%BC%93%E5%AD%98"><span class="toc-nav-text">HTTP缓存与CDN缓存</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#HTTP%E7%BC%93%E5%AD%98%EF%BC%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%93%E5%AD%98%EF%BC%89"><span class="toc-nav-text">HTTP缓存（客户端缓存）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98"><span class="toc-nav-text">强制缓存</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%AF%B9%E6%AF%94-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-nav-text">对比&#x2F;协商缓存</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#CDN%E7%BC%93%E5%AD%98%EF%BC%88%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%93%E5%AD%98%EF%BC%89"><span class="toc-nav-text">CDN缓存（服务端缓存）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B7%A8%E5%9F%9F"><span class="toc-nav-text">跨域</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-nav-text">解决</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsonp"><span class="toc-nav-text">jsonp</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#cors%E8%B7%A8%E5%9F%9F"><span class="toc-nav-text">cors跨域</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-nav-text">vue双向绑定</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#webpack"><span class="toc-nav-text">webpack</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#webpack%E5%92%8Cvite"><span class="toc-nav-text">webpack和vite</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#package-json%E5%92%8Cpackage-lock-json%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">package.json和package-lock.json的区别</span></a></li></ol>
     
   </div>
 </aside>
