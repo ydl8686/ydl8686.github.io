@@ -167,6 +167,28 @@ var findRepeatNumber = function(nums) &#123;    let mySet = new S ...
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/posts/2301/">面试 | 浏览器原理</a>
+      </h2>
+      <p class="article-date">March 27, 2023</p>
+      
+        
+  <a href="/tags#面试" >
+    <span class="tag-code">面试</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. xss攻击跨站脚本攻击，攻击者往网站注入恶意脚本，浏览器没有办法分辨哪些是可信的，所以导致恶意代码的运行
+分为存储、反射和DOM型，存储型指的是恶意脚本存储在服务器上，当浏览器请求数据时，脚本从服务器传回并执行。
+反射型指的是攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接 ...
+        
+      </div>
+      <a class="more" href="/posts/2301/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/posts/27789/">面试 | webpack</a>
       </h2>
       <p class="article-date">March 22, 2023</p>
@@ -200,8 +222,9 @@ var findRepeatNumber = function(nums) &#123;    let mySet = new S ...
       
       <div class="article-summary">
         
-          性能优化滑动列表渲染白屏问题webpack分包
-兼容
+          水印背景：甲方提供的图片在页面展示时需要
+滑动列表渲染websocket白屏问题排查webpack分包
+登录鉴权自动登录
         
       </div>
       <a class="more" href="/posts/37306/">Read more</a>
@@ -222,10 +245,8 @@ var findRepeatNumber = function(nums) &#123;    let mySet = new S ...
       <div class="article-summary">
         
           1. GET和POST请求的区别应用场景：GET请求是幂等请求，对服务器的资源不会产生影响；而POST请求一般会对服务器资源进行变更
-请求长度：由于浏览器限制了url长度，所以get请求发送数据时的长度也会受到限制；POST请求则不会受到限制
-2. 常见http请求头和响应头常见的请求头
-
- ...
+请求长度：由于浏览器限制了url长度，所以get请求发送参数的长度也会受到限制；POST请求则不会受到限制
+书签：GET产生的url地址可以保存为书签，但是P ...
         
       </div>
       <a class="more" href="/posts/12148/">Read more</a>
@@ -267,9 +288,17 @@ var findRepeatNumber = function(nums) &#123;    let mySet = new S ...
       
       <div class="article-summary">
         
-          UDP和TCP的区别、使用场景、优劣，如何让UDP更可靠区别
-TCP面向连接，UDP是无连接的TCP在开始数据传输之前要经过三次握手，UDP却不需要任何准备即可进行数据传输，因此UDP不会引入建立连接的时延
-TCP提供可靠的服务，UDP则是尽最大努力交付TCP传输数据具有重传机制，如果在传输 ...
+          
+闭包
+
+
+上级作用域指的是创建时的上级而不是调用的上级，与this指针不同
+
+定义闭包是指能够访问另一个函数内部变量的函数，创建闭包最常见的方式就是将函数作为返回值
+
+有时候需要得到函数内的局部变量。但是，正常情况下这是办不到的，只有通过变通方法才能实现，闭包就是这种方法
+
+实际应用获取多 ...
         
       </div>
       <a class="more" href="/posts/57112/">Read more</a>
@@ -342,29 +371,6 @@ sudo pip install flawfinder
         
       </div>
       <a class="more" href="/posts/12639/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/posts/19784/">面试 | css</a>
-      </h2>
-      <p class="article-date">September 3, 2022</p>
-      
-        
-  <a href="/tags#面试" >
-    <span class="tag-code">面试</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          1. 度量单位em、rem、vh、vw、%em相对长度单位，相对于当前对象内文本的字体尺寸，根据父元素的font-size大小变化而变化
-rem相对长度单位，相对于根元素（即html元素）font-size的倍数，不会被它的父元素影响
-
-rem布局的本质是等比缩放大屏用户需要有选择要更大字体 ...
-        
-      </div>
-      <a class="more" href="/posts/19784/">Read more</a>
     </article>
   
 
